@@ -28,6 +28,10 @@ if [ "$(omv_config_get "${XPATH}/enable")" != "1" ]; then
     exit 0
 fi
 
+# Info used from forum thread
+# http://forums.openmediavault.org/index.php/Thread/6438-Tutorial-Experimental-Reducing-OMV-s-disk-writes-also-to-install-it-on-USB-flash/?pageNo=1
+
+# create fs2ram config
 cat <<EOF > ${FS2RAM_CONFIG}
 # this file was automatically generated
 #<file system>  <mount point>               <script>                <script option> <type>  <options>
@@ -41,6 +45,24 @@ tmpfs           /var/lib/monit              keep_file_content       -           
 tmpfs           /var/lib/php5               keep_folder_structure   -               tmpfs
 EOF
 
+# make backup copy of fstab
+cp -f /etc/fstab /root/fstab.backup
+
+# make temp copy of fstab
+cp -f /etc/fstab /tmp/fstab
+
+# add noatime to / entry
+awk '($2=="/"){$4="noatime,"$4}1;' /tmp/fstab > /tmp/fstab_new
+
+# disable swap entry
+awk '($3=="swap"){$1="#"$1}1;' /tmp/fstab_new > /tmp/fstab_new2
+
+# replace fstab with new version
+cp -f /tmp/fstab_new2 /etc/fstab
+
+# link mounts to mtab
 ln –sf /proc/mounts /etc/mtab
+
+omv-mkconf fstab
 
 exit 0
