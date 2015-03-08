@@ -1,0 +1,5 @@
+openmediavault-fs2ram (1.0) stable; urgency=low
+
+  * Initial release
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 06 Feb 2015 21:21:03 -0600

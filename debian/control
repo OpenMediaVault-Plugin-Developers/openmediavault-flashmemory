@@ -1,0 +1,14 @@
+Source: openmediavault-fs2ram
+Section: net
+XB-Plugin-Section: utilities
+Priority: optional
+Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.3
+Homepage: http://omv-extras.org/
+
+Package: openmediavault-fs2ram
+Architecture: all
+Depends: openmediavault (>= 1.12), fs2ram ${misc:Depends}
+Description: fs2ram plugin for OpenMediaVault
+ fs2ram manages temporary file systems across reboots.

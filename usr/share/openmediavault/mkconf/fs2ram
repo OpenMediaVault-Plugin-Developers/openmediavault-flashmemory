@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Copyright (C) 2015 OpenMediaVault Plugin Developers
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+FS2RAM_CONFIG="/etc/fs2ram/fs2ram.conf"
+XPATH="//services/fs2ram"
+
+# Generate configuration only if the service is enabled.
+if [ "$(omv_config_get "${XPATH}/enable")" != "1" ]; then
+    exit 0
+fi
+
+cat <<EOF > ${FS2RAM_CONFIG}
+# this file was automatically generated
+#<file system>  <mount point>               <script>                <script option> <type>  <options>
+tmpfs           /var/cache                  keep_folder_structure   -               tmpfs
+tmpfs           /var/log                    keep_file_structure     -               tmpfs
+tmpfs           /var/tmp                    -                       -               tmpfs
+tmpfs           /var/lib/openmediavault/rrd keep_file_content       -               tmpfs
+tmpfs           /var/spool                  keep_file_content       -               tmpfs
+tmpfs           /var/lib/rrdcached/         keep_file_content       -               tmpfs
+tmpfs           /var/lib/monit              keep_file_content       -               tmpfs
+tmpfs           /var/lib/php5               keep_folder_structure   -               tmpfs
+EOF
+
+ln –sf /proc/mounts /etc/mtab
+
+exit 0
