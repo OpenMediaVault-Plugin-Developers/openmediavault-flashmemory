@@ -37,12 +37,12 @@ class OMVRpcServiceFs2ram extends OMVRpcServiceAbstract
 
     private function getXPath()
     {
-        return sprintf( "//system/%s", $this->getPluginName() );
+        return sprintf( "//services/%s", $this->getPluginName() );
     }
 
     private function getEventMessagePath()
     {
-        return sprintf( "org.openmediavault.system.%s", $this->getPluginName() );
+        return sprintf( "org.openmediavault.services.%s", $this->getPluginName() );
     }
 
     public function initialize()
@@ -101,7 +101,7 @@ class OMVRpcServiceFs2ram extends OMVRpcServiceAbstract
 
         // Prepare configuration data
         $object = array(
-            "enable"               => array_boolval($params, "enable")
+            "enable" => array_boolval($params, "enable")
         );
 
         // Set configuration object

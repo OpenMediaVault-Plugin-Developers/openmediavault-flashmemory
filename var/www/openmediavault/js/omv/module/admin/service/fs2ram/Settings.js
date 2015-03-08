@@ -43,7 +43,7 @@ Ext.define("OMV.module.admin.service.fs2ram.Settings", {
                 name       : "enable",
                 fieldLabel : _("Enable"),
                 checked    : false
-            }
+            }]
         }];
     }
 });

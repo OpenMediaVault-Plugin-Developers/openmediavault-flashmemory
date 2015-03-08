@@ -24,12 +24,11 @@ require_once "openmediavault/module.inc";
 require_once "openmediavault/util.inc";
 
 class OMVModuleFs2ram extends OMVModuleServiceAbstract implements
-    OMVINotifyListener,
-    OMVIModuleServiceStatus
+    OMVINotifyListener
 {
     public function getName()
     {
-        return "Fs2ram";
+        return "fs2ram";
     }
 
     private function getPluginName()
@@ -39,35 +38,12 @@ class OMVModuleFs2ram extends OMVModuleServiceAbstract implements
 
     private function getXPath()
     {
-        return sprintf( "//system/%s", $this->getPluginName() );
+        return sprintf( "//services/%s", $this->getPluginName() );
     }
 
     private function getEventMessagePath()
     {
-        return sprintf( "org.openmediavault.system.%s", $this->getPluginName() );
-    }
-
-    public function getStatus()
-    {
-        global $xmlConfig;
-
-        $object = $xmlConfig->get($this->getXPath());
-
-        if (is_null($object)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
-            );
-        }
-
-        $initd = new OMVSysVInitScript($this->getName());
-
-        return array(
-            "name"    => $this->getName(),
-            "title"   => gettext("fs2ram"),
-            "enabled" => boolval($object["enable"]),
-            "running" => $initd->status() == 0
-        );
+        return sprintf( "org.openmediavault.services.%s", $this->getPluginName() );
     }
 
     public function applyConfig()
