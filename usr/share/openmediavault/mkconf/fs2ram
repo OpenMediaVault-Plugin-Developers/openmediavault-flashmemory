@@ -52,10 +52,20 @@ cp -f /etc/fstab /root/fstab.backup
 cp -f /etc/fstab /tmp/fstab
 
 # add noatime to / entry
-awk '($2=="/"){$4="noatime,"$4}1;' /tmp/fstab > /tmp/fstab_new
+noatime=$( cat /tmp/fstab | grep UUID | grep "/ " | grep -c noatime )
+if [ "$noatime" != 0 ]; then
+	cp -f /tmp/fstab > /tmp/fstab_new
+else
+	awk '($2=="/"){$4="noatime,"$4}1;' /tmp/fstab > /tmp/fstab_new
+fi
 
 # disable swap entry
-awk '($3=="swap"){$1="#"$1}1;' /tmp/fstab_new > /tmp/fstab_new2
+noswap=$( cat /tmp/fstab_new | grep UUID | grep swap | grep -c "^#" )
+if [ "$noswap" != 0 ]; then
+	cp -f /tmp/fstab_new /tmp/fstab_new2
+else
+	awk '($3=="swap"){$1="#"$1}1;' /tmp/fstab_new > /tmp/fstab_new2
+fi
 
 # replace fstab with new version
 cp -f /tmp/fstab_new2 /etc/fstab
