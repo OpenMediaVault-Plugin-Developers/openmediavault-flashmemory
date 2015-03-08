@@ -71,7 +71,7 @@ fi
 cp -f /tmp/fstab_new2 /etc/fstab
 
 # link mounts to mtab
-ln –sf /proc/mounts /etc/mtab
+ln -sf /proc/mounts /etc/mtab
 
 omv-mkconf fstab
 
