@@ -4,6 +4,10 @@ Files: *
 Copyright: 2015 OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 License: GPL-3+
 
+Files: var/www/openmediavault/images/*
+Copyright: Copyright (C) Keyamoon
+License: GPL-3+ or CC-BY-4.0
+
 License: GPL-3+
  /usr/share/common-licenses/GPL-3
  

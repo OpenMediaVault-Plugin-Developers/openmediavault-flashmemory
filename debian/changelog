@@ -1,3 +1,9 @@
+openmediavault-flashmemory (1.2) stable; urgency=low
+
+  * Update icons
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 09 Mar 2015 10:21:13 -0500
+
 openmediavault-flashmemory (1.1) stable; urgency=low
 
   * Fix filename
