@@ -23,11 +23,11 @@ require_once "openmediavault/object.inc";
 require_once "openmediavault/rpcservice.inc";
 require_once "openmediavault/util.inc";
 
-class OMVRpcServiceFs2ram extends OMVRpcServiceAbstract
+class OMVRpcServiceFlashmemory extends OMVRpcServiceAbstract
 {
     public function getName()
     {
-        return "Fs2ram";
+        return "Flashmemory";
     }
 
     private function getPluginName()
@@ -69,9 +69,6 @@ class OMVRpcServiceFs2ram extends OMVRpcServiceAbstract
                 $this->getXPath()
             );
         }
-
-        // Get actual fs2ram status
-        $initd = new OMVSysVInitScript("fs2ram");
 
         // Modify result data
         $object["enable"] = intval($object["enable"]);
@@ -124,4 +121,4 @@ class OMVRpcServiceFs2ram extends OMVRpcServiceAbstract
 
 // Register the RPC service.
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceFs2ram());
+$rpcServiceMgr->registerService(new OMVRpcServiceFlashmemory());

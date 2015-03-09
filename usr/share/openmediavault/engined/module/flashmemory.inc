@@ -23,17 +23,22 @@ require_once "openmediavault/initscript.inc";
 require_once "openmediavault/module.inc";
 require_once "openmediavault/util.inc";
 
-class OMVModuleFs2ram extends OMVModuleServiceAbstract implements
+class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
     OMVINotifyListener
 {
     public function getName()
     {
-        return "fs2ram";
+        return "flashmemory";
     }
 
     private function getPluginName()
     {
         return strtolower( $this->getName() );
+    }
+
+    private function getServiceName()
+    {
+        return "fs2ram";
     }
 
     private function getXPath()
@@ -76,13 +81,13 @@ class OMVModuleFs2ram extends OMVModuleServiceAbstract implements
             return;
         }
 
-        $initd = new OMVSysVInitScript($this->getName(), true);
+        $initd = new OMVSysVInitScript($this->getServiceName(), true);
         $initd->exec();
     }
 
     public function stopService()
     {
-        $initd = new OMVSysVInitScript($this->getName());
+        $initd = new OMVSysVInitScript($this->getServiceName());
         $initd->exec();
     }
 
@@ -100,4 +105,4 @@ class OMVModuleFs2ram extends OMVModuleServiceAbstract implements
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleFs2ram());
+$moduleMgr->registerModule(new OMVModuleFlashmemory());

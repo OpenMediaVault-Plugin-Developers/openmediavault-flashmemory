@@ -7,7 +7,7 @@ set -e
 
 case "$1" in
     configure)
-        SERVICE_XPATH_NAME="fs2ram"
+        SERVICE_XPATH_NAME="flashmemory"
         SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
         # Add the default configuration

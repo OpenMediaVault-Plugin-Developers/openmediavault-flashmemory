@@ -17,9 +17,9 @@
 // require("js/omv/WorkspaceManager.js")
 
 OMV.WorkspaceManager.registerNode({
-    id      : "fs2ram",
+    id      : "flashmemory",
     path    : "/service",
-    text    : _("fs2ram"),
-    icon16  : "images/fs2ram.png",
-    iconSvg : "images/fs2ram.svg"
+    text    : _("Flash Memory"),
+    icon16  : "images/flashmemory.png",
+    iconSvg : "images/flashmemory.svg"
 });

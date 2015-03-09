@@ -20,14 +20,14 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 
-Ext.define("OMV.module.admin.service.fs2ram.Settings", {
+Ext.define("OMV.module.admin.service.flashmemory.Settings", {
     extend : "OMV.workspace.form.Panel",
     uses   : [
         "OMV.data.Model",
         "OMV.data.Store"
     ],
 
-    rpcService   : "Fs2ram",
+    rpcService   : "Flashmemory",
     rpcGetMethod : "getSettings",
     rpcSetMethod : "setSettings",
 
@@ -50,8 +50,8 @@ Ext.define("OMV.module.admin.service.fs2ram.Settings", {
 
 OMV.WorkspaceManager.registerPanel({
     id        : "settings",
-    path      : "/service/fs2ram",
+    path      : "/service/flashmemory",
     text      : _("Settings"),
     position  : 10,
-    className : "OMV.module.admin.service.fs2ram.Settings"
+    className : "OMV.module.admin.service.flashmemory.Settings"
 });

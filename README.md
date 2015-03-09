@@ -1,2 +1,2 @@
-openmediavault-fs2ram
-=====================
+openmediavault-flashmemory
+==========================

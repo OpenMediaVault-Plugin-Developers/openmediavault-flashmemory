@@ -21,7 +21,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 FS2RAM_CONFIG="/etc/fs2ram/fs2ram.conf"
-XPATH="//services/fs2ram"
+XPATH="//services/flashmemory"
 
 # Generate configuration only if the service is enabled.
 if [ "$(omv_config_get "${XPATH}/enable")" != "1" ]; then
