@@ -42,7 +42,41 @@ Ext.define("OMV.module.admin.service.flashmemory.Settings", {
                 xtype      : "checkbox",
                 name       : "enable",
                 fieldLabel : _("Enable"),
-                checked    : false
+                checked    : false,
+                boxLabel   : _("When enabling the plugin, you will be logged out due to files being moved to ram."),
+            }]
+        },{
+            xtype         : "fieldset",
+            title         : _("Notes"),
+            fieldDefaults : {
+                labelSeparator : ""
+            },
+            items         : [{
+                border : false,
+                html   : "<p>" + _("Fstab (/etc/fstab) needs to be changed manually. Following these steps to change:") +
+                         "<ol>" +
+                           "<li>" + _("Login as root locally or via ssh") + "</li>" +
+                           "<li>" + _("Execute the following command:  <b>nano /etc/fstab</b>") + "</li>" +
+                           "<li>" + _("Add noatime and nodiratime to root options.  See before and after example lines:") + "</li>" +
+                             "<dl>" +
+                               "<dt>" + _("BEFORE:") + "</dt>" +
+                               "<dd>" + "UUID=ccd327d4-a1ed-4fd2-b356-3b492c6f6c34  /  ext4  errors=remount-ro  0  1" + "</dd>" +
+                               "<dt>" + _("AFTER:") + "</dt>" +
+                               "<dd>" + "UUID=ccd327d4-a1ed-4fd2-b356-3b492c6f6c34  /  ext4  noatime,nodiratime,errors=remount-ro  0  1" + "</dd>" +
+                             "</dl>" +
+                           "<li>" + _("Comment out the swap partition.  See before and after example lines (only need to add a # to beginning of the line):") + "</li>" +
+                             "<dl>" +
+                               "<dt>" + _("BEFORE:") + "</dt>" +
+                               "<dd>" + "UUID=a3c989d8-e12b-41d3-b021-098155d6b21b  none  swap  sw  0  0" + "</dd>" +
+                               "<dt>" + _("AFTER:") + "</dt>" +
+                               "<dd>" + "#UUID=a3c989d8-e12b-41d3-b021-098155d6b21b  none  swap  sw  0  0" + "</dd>" +
+                             "</dl>" +
+                          "<li>" + _("Ctrl-o to save") + "</li>" +
+                          "<li>" + _("Ctrl-x to exit") + "</li>" +
+                          "<li>" + _("Enable the plugin") + "</li>" +
+                          "<li>" + _("Reboot") + "</li>" +
+                         "</ol>" +
+                         "</p>"
             }]
         }];
     }

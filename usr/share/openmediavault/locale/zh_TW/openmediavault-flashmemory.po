@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-flashmemory\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-11 06:59-0500\n"
+"PO-Revision-Date: 2015-03-11 12:03+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault-flashmemory/language/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "AFTER:"
+msgstr ""
+
+msgid ""
+"Add noatime and nodiratime to root options.  See before and after example "
+"lines:"
+msgstr ""
+
+msgid "BEFORE:"
+msgstr ""
+
+msgid ""
+"Comment out the swap partition.  See before and after example lines (only "
+"need to add a # to beginning of the line):"
+msgstr ""
+
+msgid "Ctrl-o to save"
+msgstr ""
+
+msgid "Ctrl-x to exit"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable the plugin"
+msgstr ""
+
+msgid "Execute the following command:  <b>nano /etc/fstab</b>"
+msgstr ""
+
+msgid "Flash Memory"
+msgstr ""
+
+msgid ""
+"Fstab (/etc/fstab) needs to be changed manually. Following these steps to "
+"change:"
+msgstr ""
+
+msgid "Login as root locally or via ssh"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Reboot"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid ""
+"When enabling the plugin, you will be logged out due to files being moved to"
+" ram."
+msgstr ""
