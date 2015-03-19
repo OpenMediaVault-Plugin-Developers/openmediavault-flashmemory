@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 06:59-0500\n"
-"PO-Revision-Date: 2015-03-11 12:03+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-03-19 08:30-0500\n"
+"PO-Revision-Date: 2015-03-19 13:34+0000\n"
+"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-flashmemory/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "AFTER:"
-msgstr ""
+msgstr "EFTER:"
 
 msgid ""
 "Add noatime and nodiratime to root options.  See before and after example "
@@ -26,7 +27,7 @@ msgid ""
 msgstr ""
 
 msgid "BEFORE:"
-msgstr ""
+msgstr "FØR:"
 
 msgid ""
 "Comment out the swap partition.  See before and after example lines (only "
@@ -34,41 +35,47 @@ msgid ""
 msgstr ""
 
 msgid "Ctrl-o to save"
-msgstr ""
+msgstr "Ctrl-o for at gemme"
 
 msgid "Ctrl-x to exit"
-msgstr ""
+msgstr "Ctrl-x for at lukke"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Enable the plugin"
-msgstr ""
+msgstr "Aktiver plugin"
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
-msgstr ""
+msgstr "Udfør den følgenede kommando:  <b>nano /etc/fstab</b>"
 
 msgid "Flash Memory"
-msgstr ""
+msgstr "Flash Hukommelse"
 
 msgid ""
 "Fstab (/etc/fstab) needs to be changed manually. Following these steps to "
 "change:"
-msgstr ""
+msgstr "Fstab (/etc/fstab) skal ændres manuelt. Følg disse trin for at ændre:"
 
 msgid "Login as root locally or via ssh"
-msgstr ""
+msgstr "Log ind lokalt som rod eller via ssh"
 
 msgid "Notes"
-msgstr ""
+msgstr "Noter"
 
 msgid "Reboot"
+msgstr "Genstart"
+
+msgid "Root"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 msgid ""
 "When enabling the plugin, you will be logged out due to files being moved to"
 " ram."
+msgstr ""
+
+msgid "Write Kbytes"
 msgstr ""

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Hyeonkyu Chu <hyeonkyu@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 06:59-0500\n"
-"PO-Revision-Date: 2015-03-11 12:03+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-03-19 08:30-0500\n"
+"PO-Revision-Date: 2015-03-19 13:34+0000\n"
+"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault-flashmemory/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,57 +19,63 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "AFTER:"
-msgstr ""
+msgstr "이후:"
 
 msgid ""
 "Add noatime and nodiratime to root options.  See before and after example "
 "lines:"
-msgstr ""
+msgstr "noatime, nodiratime 을 root options 에 추가합니다. 이전 및 이후 관련 예제 참조:"
 
 msgid "BEFORE:"
-msgstr ""
+msgstr "이전:"
 
 msgid ""
 "Comment out the swap partition.  See before and after example lines (only "
 "need to add a # to beginning of the line):"
-msgstr ""
+msgstr "스왑 파티션을 주석 처리합니다. 이전 및 이후 관련 예제 참조 (해당 줄의 첫 칸에 # 추가)"
 
 msgid "Ctrl-o to save"
-msgstr ""
+msgstr "Ctrl-o 로 저장"
 
 msgid "Ctrl-x to exit"
-msgstr ""
+msgstr "Ctrl-x 로 종료"
 
 msgid "Enable"
-msgstr ""
+msgstr "활성화"
 
 msgid "Enable the plugin"
-msgstr ""
+msgstr "플러그인 활성화"
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
-msgstr ""
+msgstr "다음 명령을 실행합니다: <b>nano /etc/fstab</b>"
 
 msgid "Flash Memory"
-msgstr ""
+msgstr "Flash Memory"
 
 msgid ""
 "Fstab (/etc/fstab) needs to be changed manually. Following these steps to "
 "change:"
-msgstr ""
+msgstr "fstab ( /etc/fstab )은 수동으로 변경해야 합니다. 다음 단계를 통해 변경:"
 
 msgid "Login as root locally or via ssh"
-msgstr ""
+msgstr "로컬 또는 SSH를 통해 root 로 로그인"
 
 msgid "Notes"
-msgstr ""
+msgstr "설명"
 
 msgid "Reboot"
+msgstr "시스템 재시작"
+
+msgid "Root"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 msgid ""
 "When enabling the plugin, you will be logged out due to files being moved to"
 " ram."
+msgstr "플러그인을 활성화 할 때, 파일을 램으로 이동 시키기 위해 로그 아웃 됩니다."
+
+msgid "Write Kbytes"
 msgstr ""

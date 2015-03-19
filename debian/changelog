@@ -1,6 +1,7 @@
 openmediavault-flashmemory (1.4) stable; urgency=low
 
   * Add display of amount written to root
+  * Update locales
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 19 Mar 2015 08:22:31 -0500
 
