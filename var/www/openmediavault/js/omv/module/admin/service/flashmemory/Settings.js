@@ -46,6 +46,24 @@ Ext.define("OMV.module.admin.service.flashmemory.Settings", {
                 boxLabel   : _("When enabling the plugin, you will be logged out due to files being moved to ram."),
             }]
         },{
+            xtype    : "fieldset",
+            title    : "Details",
+            defaults : {
+                labelSeparator : ""
+            },
+            items : [{
+                xtype       : "textfield",
+                name        : "root",
+                fieldLabel  : _("Root"),
+                readOnly    : true
+            },{
+                xtype       : "textfield",
+                name        : "written",
+                fieldLabel  : _("Write Kbytes"),
+                submitValue : false,
+                readOnly    : true
+            }]
+        },{
             xtype         : "fieldset",
             title         : _("Notes"),
             fieldDefaults : {

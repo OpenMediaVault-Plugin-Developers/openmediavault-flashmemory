@@ -73,6 +73,12 @@ class OMVRpcServiceFlashmemory extends OMVRpcServiceAbstract
         // Modify result data
         $object["enable"] = intval($object["enable"]);
 
+        // Get session_write_kbytes for root drive
+        $root = explode("/", $object['root']);
+        $object["written"] = file_get_contents(
+            sprintf("/sys/fs/ext4/%s/session_write_kbytes", $root[2])
+        );
+
         return $object;
     }
 
@@ -91,14 +97,16 @@ class OMVRpcServiceFlashmemory extends OMVRpcServiceAbstract
             '{
                 "type"       : "object",
                 "properties" : {
-                    "enable"  : { "type" : "boolean" }
+                    "enable"  : { "type" : "boolean" },
+                    "root"    : { "type" : "string" }
                 }
             }'
         );
 
         // Prepare configuration data
         $object = array(
-            "enable" => array_boolval($params, "enable")
+            "enable" => array_boolval($params, "enable"),
+            "root"   => $params['root']
         );
 
         // Set configuration object
