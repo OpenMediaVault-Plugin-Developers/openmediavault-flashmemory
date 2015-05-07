@@ -45,8 +45,28 @@ tmpfs           /var/lib/monit              keep_file_content       -           
 tmpfs           /var/lib/php5               keep_folder_structure   -               tmpfs
 EOF
 
-#disabling apt disk cache so its folder in /var/cache/apt/whatever won't ever fill up. Also saves additional writes.
-echo Dir::Cache ""; >> /etc/apt/apt.conf.d/02nocache 
-echo Dir::Cache::archives ""; >> /etc/apt/apt.conf.d/02nocache
+#sending a housekeeping script to /tmp so that we do the following modifications in a moment that won't upset apt-get
+echo 
+'#!/bin/bash
+#waiting for the package manager to finish its job.
+    while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do
+    sleep 1
+    done
+#disabling apt disk cache so its folder in /var/cache/apt/whatever will stop filling up. Also saves additional writes.
+    echo Dir::Cache ""; >> /etc/apt/apt.conf.d/02nocache 
+    echo Dir::Cache::archives ""; >> /etc/apt/apt.conf.d/02nocache
+#deleting the packages already in the cache, because otherwise this is all wasted space in the tmpfs 
+#and time wasted on startup and shutdown as all this stuff is compressed/extracted, especially for devices with weak processors
+    rm /var/cache/apt/archives/*
+    rm /var/cache/apt/archives/partial/*
+#script self-destruct, deletes this script from disk. technically optional, as /tmp content gets dumped anyway on startup.
+    rm /tmp/fs2ramhousekeeper
+exit 0 ' >> /tmp/fs2ramhousekeeper
+
+#making it executable
+chmod a+x /tmp/fs2ramhousekeeper
+
+#calling it up as another process, so this script can quit and installation of whatever else can continue.
+bash /tmp/fs2ramhousekeeper
 
 exit 0
