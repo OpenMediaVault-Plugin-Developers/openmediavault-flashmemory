@@ -35,7 +35,7 @@ fi
 cat <<EOF > ${FS2RAM_CONFIG}
 # this file was automatically generated
 #<file system>  <mount point>               <script>                <script option> <type>  <options>
-tmpfs           /var/cache                  keep_folder_structure   -               tmpfs
+tmpfs           /var/cache                  keep_file_content       -               tmpfs
 tmpfs           /var/log                    keep_file_structure     -               tmpfs
 tmpfs           /var/tmp                    -                       -               tmpfs
 tmpfs           /var/lib/openmediavault/rrd keep_file_content       -               tmpfs
@@ -45,7 +45,8 @@ tmpfs           /var/lib/monit              keep_file_content       -           
 tmpfs           /var/lib/php5               keep_folder_structure   -               tmpfs
 EOF
 
-# link mounts to mtab
-ln -sf /proc/mounts /etc/mtab
+#disabling apt disk cache so its folder in /var/cache/apt/whatever won't ever fill up. Also saves additional writes.
+echo Dir::Cache ""; >> /etc/apt/apt.conf.d/02nocache 
+echo Dir::Cache::archives ""; >> /etc/apt/apt.conf.d/02nocache
 
 exit 0
