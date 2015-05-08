@@ -49,12 +49,14 @@ EOF
 echo 
 '#!/bin/bash
 #waiting for the package manager to finish its job.
-    while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do
+    while [[ ! -f /var/lib/dpkg/lock ]]; do
     sleep 1
     done
 #disabling apt disk cache so its folder in /var/cache/apt/whatever will stop filling up. Also saves additional writes.
     echo Dir::Cache ""; >> /etc/apt/apt.conf.d/02nocache 
     echo Dir::Cache::archives ""; >> /etc/apt/apt.conf.d/02nocache
+#disabling cron-apt package download by erasing the file asking for it.
+    rm /etc/cron-apt/action.d/3-download
 #deleting the packages already in the cache, because otherwise this is all wasted space in the tmpfs 
 #and time wasted on startup and shutdown as all this stuff is compressed/extracted, especially for devices with weak processors
     rm /var/cache/apt/archives/*
