@@ -1,6 +1,6 @@
 Source: openmediavault-flashmemory
 Section: net
-XB-Plugin-Section: utilities
+XB-Plugin-Section: filesystems
 Priority: optional
 Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 Build-Depends: debhelper (>= 9)
