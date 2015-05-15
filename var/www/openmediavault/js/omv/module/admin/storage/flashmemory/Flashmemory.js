@@ -18,7 +18,7 @@
 
 OMV.WorkspaceManager.registerNode({
     id      : "flashmemory",
-    path    : "/service",
+    path    : "/storage",
     text    : _("Flash Memory"),
     icon16  : "images/flashmemory.png",
     iconSvg : "images/flashmemory.svg"

@@ -20,7 +20,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 
-Ext.define("OMV.module.admin.service.flashmemory.Settings", {
+Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
     extend : "OMV.workspace.form.Panel",
     uses   : [
         "OMV.data.Model",
@@ -102,8 +102,8 @@ Ext.define("OMV.module.admin.service.flashmemory.Settings", {
 
 OMV.WorkspaceManager.registerPanel({
     id        : "settings",
-    path      : "/service/flashmemory",
+    path      : "/storage/flashmemory",
     text      : _("Settings"),
     position  : 10,
-    className : "OMV.module.admin.service.flashmemory.Settings"
+    className : "OMV.module.admin.storage.flashmemory.Settings"
 });

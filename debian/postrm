@@ -7,7 +7,7 @@ set -e
 
 case "$1" in
     purge)
-        omv_config_delete "//services/flashmemory"
+        omv_config_delete "/config/services/flashmemory"
         #reverting apt disk cache 
         rm /etc/apt/apt.conf.d/02nocache
         #reverting cron-apt package download 

@@ -1,3 +1,9 @@
+openmediavault-flashmemory (1.6) stable; urgency=low
+
+  * Move to storage section
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 15 May 2015 09:53:30 -0500
+
 openmediavault-flashmemory (1.5) stable; urgency=low
 
   * github pull request #1
