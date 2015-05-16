@@ -21,6 +21,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 FS2RAM_CONFIG="/etc/fs2ram/fs2ram.conf"
+HOUSEKEEPER="/tmp/fs2ramhousekeeper"
 XPATH="//services/flashmemory"
 
 # Generate configuration only if the service is enabled.
@@ -46,14 +47,14 @@ tmpfs           /var/lib/php5               keep_folder_structure   -           
 EOF
 
 #sending a housekeeping script to /tmp so that we do the following modifications in a moment that won't upset apt-get
-echo 
-'#!/bin/bash
+cat <<EOF > ${HOUSEKEEPER}
+#!/bin/bash
 #waiting for the package manager to finish its job.
     while [[ ! -f /var/lib/dpkg/lock ]]; do
     sleep 1
     done
 #disabling apt disk cache so its folder in /var/cache/apt/whatever will stop filling up. Also saves additional writes.
-    echo Dir::Cache ""; >> /etc/apt/apt.conf.d/02nocache 
+    echo Dir::Cache ""; > /etc/apt/apt.conf.d/02nocache 
     echo Dir::Cache::archives ""; >> /etc/apt/apt.conf.d/02nocache
 #disabling cron-apt package download by erasing the file asking for it.
     rm /etc/cron-apt/action.d/3-download
@@ -62,13 +63,14 @@ echo
     rm /var/cache/apt/archives/*
     rm /var/cache/apt/archives/partial/*
 #script self-destruct, deletes this script from disk. technically optional, as /tmp content gets dumped anyway on startup.
-    rm /tmp/fs2ramhousekeeper
-exit 0 ' >> /tmp/fs2ramhousekeeper
+    rm ${HOUSEKEEPER}
+exit 0
+EOF
 
 #making it executable
-chmod a+x /tmp/fs2ramhousekeeper
+chmod a+x ${HOUSEKEEPER}
 
 #calling it up as another process, so this script can quit and installation of whatever else can continue.
-bash /tmp/fs2ramhousekeeper
+bash ${HOUSEKEEPER}
 
 exit 0
