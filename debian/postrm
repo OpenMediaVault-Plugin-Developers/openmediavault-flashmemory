@@ -11,9 +11,8 @@ case "$1" in
         #reverting apt disk cache 
         rm /etc/apt/apt.conf.d/02nocache
         #reverting cron-apt package download 
-        echo 
-        'autoclean -y
-        upgrade -d -y -o APT::Get::Show-Upgraded=true' >> /etc/cron-apt/action.d/3-download
+        echo "autoclean -y" >> /etc/cron-apt/action.d/3-download
+        echo "upgrade -d -y -o APT::Get::Show-Upgraded=true" >> /etc/cron-apt/action.d/3-download
     ;;
 
     remove)
