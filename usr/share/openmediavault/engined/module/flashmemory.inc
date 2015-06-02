@@ -38,7 +38,7 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 
     private function getServiceName()
     {
-        return "fs2ram";
+        return "folder2ram";
     }
 
     private function getXPath()
@@ -67,7 +67,10 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
     public function startService()
     {
         global $xmlConfig;
-
+        
+// when (if) OMV runs these commands, this will power up folder2ram
+		$cmd = sprintf("folder2ram -refersh && folder2ram -mountall", $this->getName());
+		
         $object = $xmlConfig->get($this->getXPath());
 
         if (is_null($object)) {
@@ -87,6 +90,21 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 
     public function stopService()
     {
+    
+        global $xmlConfig;
+		
+// these commands will shutdown folder2ram
+		
+		$cmd = sprintf("folder2ram -clean", $this->getName());
+		
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(
+				OMVErrorMsg::E_EXEC_FAILED,
+				$cmd,
+				implode("\n", $output)
+			);
+		}
+    
         $initd = new OMVSysVInitScript($this->getServiceName());
         $initd->exec();
     }
