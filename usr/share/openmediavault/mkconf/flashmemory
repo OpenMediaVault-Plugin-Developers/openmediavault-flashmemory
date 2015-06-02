@@ -31,8 +31,10 @@ fi
 
 # Info used from forum thread
 # http://forums.openmediavault.org/index.php/Thread/6438-Tutorial-Experimental-Reducing-OMV-s-disk-writes-also-to-install-it-on-USB-flash/?pageNo=1
+# now modified by bobafetthotmail to run with folder2ram, a safe and better system based on the info here
+# https://www.debian-administration.org/article/661/A_transient_/var/log 
 
-# create fs2ram config
+# create folder2ram config
 cat <<EOF > ${FOLDER2RAM_CONFIG}
 #############################
 #folder2ram main config file#
