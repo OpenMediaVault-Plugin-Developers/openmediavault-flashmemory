@@ -77,14 +77,25 @@ cat <<EOF > ${HOUSEKEEPER}
     rm /var/cache/apt/archives/*
     rm /var/cache/apt/archives/partial/*
 #script self-destruct, deletes this script from disk. technically optional, as /tmp content gets dumped anyway on startup.
-    rm ${HOUSEKEEPER}
+    rm /tmp/folder2ramhousekeeper
 exit 0
 EOF
 
 #making it executable
-chmod a+x ${HOUSEKEEPER}
+chmod +x ${HOUSEKEEPER}
 
 #calling it up as another process, so this script can quit and installation of whatever else can continue.
 bash ${HOUSEKEEPER}
+
+#now running the commands to power up folder2ram
+
+#for the sake of safety, removing any folder2ram initscript first
+folder2ram -clean
+
+#generating initscripts for each mount point
+folder2ram -generate
+
+#mounting them by starting the initscripts now
+folder2ram -mountall
 
 exit 0
