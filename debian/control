@@ -10,7 +10,7 @@ Homepage: http://omv-extras.org/
 Package: openmediavault-flashmemory
 Architecture: all
 Depends: openmediavault (>= 1.12),
-         fs2ram,
+         folder2ram,
          ${misc:Depends}
-Description: fs2ram plugin for OpenMediaVault
- fs2ram manages temporary file systems across reboots.
+Description: folder2ram plugin for OpenMediaVault
+ folder2ram manages temporary file systems across reboots.
