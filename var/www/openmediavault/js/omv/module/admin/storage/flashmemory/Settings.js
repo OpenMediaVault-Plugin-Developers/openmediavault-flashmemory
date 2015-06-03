@@ -43,7 +43,7 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                 name       : "enable",
                 fieldLabel : _("Enable"),
                 checked    : false,
-                boxLabel   : _("When enabling the plugin, you will be logged out due to files being moved to ram."),
+                boxLabel   : _("Settings active immediately"),
             }]
         },{
             xtype    : "fieldset",
