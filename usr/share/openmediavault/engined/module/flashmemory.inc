@@ -83,9 +83,9 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
         if (!boolval($object["enable"])) {
             return;
         }
-
-        $initd = new OMVSysVInitScript($this->getServiceName(), true);
-        $initd->exec();
+// commented out for now as folder2ram manages its own initscripts also below in the shutdown
+//        $initd = new OMVSysVInitScript($this->getServiceName(), true);
+//        $initd->exec();
     }
 
     public function stopService()
@@ -105,8 +105,8 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 			);
 		}
     
-        $initd = new OMVSysVInitScript($this->getServiceName());
-        $initd->exec();
+//        $initd = new OMVSysVInitScript($this->getServiceName());
+//        $initd->exec();
     }
 
     public function bindListeners(OMVNotifyDispatcher $dispatcher)
