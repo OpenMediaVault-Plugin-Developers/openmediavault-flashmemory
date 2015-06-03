@@ -69,8 +69,18 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
         global $xmlConfig;
         
 // when (if) OMV runs these commands, this will power up folder2ram
-		$cmd = sprintf("folder2ram -refersh && folder2ram -mountall", $this->getName());
-		
+
+	$cmd = sprintf("folder2ram -refresh && folder2ram -mountall", $this->getName());
+
+        if (0 !== $this->exec($cmd, $output)) {
+            throw new OMVException(
+                OMVErrorMsg::E_EXEC_FAILED,
+                $cmd,
+                implode("\n", $output)
+            );
+        }
+
+
         $object = $xmlConfig->get($this->getXPath());
 
         if (is_null($object)) {
