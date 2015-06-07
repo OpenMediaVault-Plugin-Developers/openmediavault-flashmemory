@@ -35,7 +35,7 @@ fi
 # https://www.debian-administration.org/article/661/A_transient_/var/log 
 
 # create folder2ram config
-cat <<EOF > ${FOLDER2RAM_CONFIG}
+cat <<'EOF' > ${FOLDER2RAM_CONFIG}
 #############################
 #folder2ram main config file#
 #############################
@@ -61,7 +61,7 @@ tmpfs           /var/lib/monit
 EOF
 
 #sending a housekeeping script to /tmp so that we do the following modifications in a moment that won't upset apt-get
-cat <<EOF > ${HOUSEKEEPER}
+cat <<'EOF' > ${HOUSEKEEPER}
 #!/bin/bash
 #waiting for the package manager to finish its job.
     while [[ ! -f /var/lib/dpkg/lock ]]; do
