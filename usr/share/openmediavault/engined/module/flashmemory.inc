@@ -70,7 +70,7 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
         
 // when (if) OMV runs these commands, this will power up folder2ram
 
-	$cmd = sprintf("folder2ram -refresh && folder2ram -mountall", $this->getName());
+	$cmd = sprintf("folder2ram -refresh 2>&1 && folder2ram -mountall 2>&1", $this->getName());
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
@@ -93,30 +93,29 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
         if (!boolval($object["enable"])) {
             return;
         }
-// commented out for now as folder2ram manages its own initscripts also below in the shutdown
+
 //        $initd = new OMVSysVInitScript($this->getServiceName(), true);
 //        $initd->exec();
     }
 
     public function stopService()
     {
-    
-        global $xmlConfig;
-		
-// these commands will shutdown folder2ram
-		
-		$cmd = sprintf("folder2ram -clean", $this->getName());
-		
-		if (0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(
-				OMVErrorMsg::E_EXEC_FAILED,
-				$cmd,
-				implode("\n", $output)
-			);
-		}
-    
+
 //        $initd = new OMVSysVInitScript($this->getServiceName());
 //        $initd->exec();
+
+// when (if) OMV runs these commands, it SHOULD power down folder2ram, but it DOES NOT do it.
+
+	$cmd = sprintf("folder2ram -clean 2>&1", $this->getName());
+
+        if (0 !== $this->exec($cmd, $output)) {
+            throw new OMVException(
+                OMVErrorMsg::E_EXEC_FAILED,
+                $cmd,
+                implode("\n", $output)
+            );
+        }
+
     }
 
     public function bindListeners(OMVNotifyDispatcher $dispatcher)
@@ -134,3 +133,5 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleFlashmemory());
+
+?>
