@@ -26,19 +26,16 @@ require_once "openmediavault/util.inc";
 class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
     OMVINotifyListener
 {
-    public function getName()
+    public function getProgramName()
     {
-        return "flashmemory";
+// name of the program controlled by the plugin, called up in place of a %s with a $this->getProgramName()
+        return "folder2ram";
     }
 
     private function getPluginName()
     {
-        return strtolower( $this->getName() );
-    }
-
-    private function getServiceName()
-    {
-        return "folder2ram";
+// name of the plugin, same function as above
+        return "flashmemory" );
     }
 
     private function getXPath()
@@ -53,7 +50,7 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 
     public function applyConfig()
     {
-        $cmd = sprintf("omv-mkconf %s 2>&1", $this->getName());
+        $cmd = sprintf("omv-mkconf %s 2>&1", $this->getPluginName());
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
@@ -70,7 +67,7 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
         
 // when (if) OMV runs these commands, this will power up folder2ram
 
-	$cmd = sprintf("folder2ram -refresh 2>&1 && folder2ram -mountall 2>&1", $this->getName());
+	$cmd = sprintf("%s -refresh 2>&1 && %s -mountall 2>&1", $this->getProgramName(), $this->getProgramName());
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
@@ -94,19 +91,15 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
             return;
         }
 
-//        $initd = new OMVSysVInitScript($this->getServiceName(), true);
-//        $initd->exec();
+
     }
 
     public function stopService()
     {
 
-//        $initd = new OMVSysVInitScript($this->getServiceName());
-//        $initd->exec();
+// when (if) OMV runs these commands, it will power down folder2ram.
 
-// when (if) OMV runs these commands, it SHOULD power down folder2ram, but it DOES NOT do it.
-
-	$cmd = sprintf("folder2ram -clean 2>&1", $this->getName());
+	$cmd = sprintf("%s -clean 2>&1", $this->getProgramName());
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
