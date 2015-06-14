@@ -26,31 +26,29 @@ require_once "openmediavault/util.inc";
 class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
     OMVINotifyListener
 {
-    public function getProgramName()
+    public function getName()
     {
-// name of the program controlled by the plugin, called up in place of a %s with a $this->getProgramName()
-        return "folder2ram";
+        return "flashmemory";
     }
 
     private function getPluginName()
     {
-// name of the plugin, same function as above
-        return "flashmemory" );
+	return strtolower( $this->getName() );
     }
 
     private function getXPath()
     {
-        return sprintf( "//services/%s", $this->getPluginName() );
+        return sprintf( "//services/%s", $this->getName() );
     }
 
     private function getEventMessagePath()
     {
-        return sprintf( "org.openmediavault.services.%s", $this->getPluginName() );
+        return sprintf( "org.openmediavault.services.%s", $this->getName() );
     }
 
     public function applyConfig()
     {
-        $cmd = sprintf("omv-mkconf %s 2>&1", $this->getPluginName());
+        $cmd = sprintf("omv-mkconf %s 2>&1", $this->getName());
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
@@ -67,7 +65,7 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
         
 // when (if) OMV runs these commands, this will power up folder2ram
 
-	$cmd = sprintf("%s -refresh 2>&1 && %s -mountall 2>&1", $this->getProgramName(), $this->getProgramName());
+	$cmd = sprintf(folder2ram -refresh 2>&1 && folder2ram -mountall 2>&1");
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
@@ -99,7 +97,7 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 
 // when (if) OMV runs these commands, it will power down folder2ram.
 
-	$cmd = sprintf("%s -clean 2>&1", $this->getProgramName());
+	$cmd = sprintf("folder2ram -clean 2>&1");
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
