@@ -28,22 +28,22 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 {
     public function getName()
     {
-        return "flashmemory";
+        return "Flashmemory";
     }
 
     private function getPluginName()
     {
-	return strtolower( $this->getName() );
+        return strtolower( $this->getName() );
     }
 
     private function getXPath()
     {
-        return sprintf( "//services/%s", $this->getName() );
+        return sprintf( "//services/%s", $this->getPluginName() );
     }
 
     private function getEventMessagePath()
     {
-        return sprintf( "org.openmediavault.services.%s", $this->getName() );
+        return sprintf( "org.openmediavault.services.%s", $this->getPluginName() );
     }
 
     public function applyConfig()
@@ -63,9 +63,9 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
     {
         global $xmlConfig;
         
-// when (if) OMV runs these commands, this will power up folder2ram
+// when OMV runs these commands, this will power up folder2ram
 
-	$cmd = sprintf(folder2ram -refresh 2>&1 && folder2ram -mountall 2>&1");
+	$cmd = sprintf("folder2ram -refresh 2>&1 && folder2ram -mountall 2>&1");
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
@@ -89,13 +89,12 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
             return;
         }
 
-
     }
 
     public function stopService()
     {
 
-// when (if) OMV runs these commands, it will power down folder2ram.
+// when OMV runs these commands, it will power down folder2ram.
 
 	$cmd = sprintf("folder2ram -clean 2>&1");
 
