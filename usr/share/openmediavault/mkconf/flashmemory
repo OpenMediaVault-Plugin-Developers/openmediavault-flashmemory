@@ -187,33 +187,29 @@ done
 
 ############DEACTIVATING FS2RAM
 
-#making an initscript that does the leg work after reboot, and clearing the contents of fs2ram's init script
+#making an initscript that does the leg work after reboot
 
-fs2ram_init="/etc/init.d/fs2ram"
+folder2ram_keeper="/etc/init.d/folder2ram-keeper"
 
-echo "" > "$fs2ram_init"
-
-fs2ram_remover="/etc/init.d/fs2ram-remover"
-
-cat > "$fs2ram_remover" <<'EOF'
+cat > "$folder2ram_keeper" <<'EOF'
 #! /bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          fs2ram-remover
+# Provides:          folder2ram-remover
 # Required-Start:    mountall
 # Required-Stop:     umountfs
 # X-Start-Before:    mountall-bootclean
 # X-Stop-After:      rsyslog syslog-ng umountnfs
 # Default-Start:     S
 # Default-Stop:      0 6
-# Short-Description: remove fs2ram.
-# Description:       removiing fs2ram safely and reloading folders
+# Short-Description: reloading data from temp folders.
+# Description:       reloading data from temp folders created before shutting down fs2ram.
 ### END INIT INFO
 . /lib/lsb/init-functions
 
 PATH=/sbin:/bin
-NAME=fs2ram-remover
-DESC=fs2ram-remover
+NAME=folder2ram-remover
+DESC=folder2ram-remover
 
 set -e
 
@@ -305,9 +301,6 @@ mount_point=$(read_fs2ram_mount_points "$line_number")
 #############END OF UNTIL LOOP:::::::::::::::::
 done
 
-#removing fs2ram
-/usr/bin/dpkg -P fs2ram
-
 exit
         ;;
     stop|restart|force-reload)
@@ -331,6 +324,9 @@ chmod +x "$fs2ram_remover"
 
 #updating initscripts
 insserv "$fs2ram_remover"
+
+#purging fs2ram
+apt-get purge -y fs2ram 
 
 reboot
 
