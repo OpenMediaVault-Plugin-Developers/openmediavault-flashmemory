@@ -148,11 +148,14 @@ cp -rfp "$DIR" -T "$DIRPERM"
 
 #######checking if the same folder is also in folder2ram config, adding it otherwise.
 line_number_folder2ram=1
-mount_point_folder2ram=$(read_folder2ram_mount_points "$line_numver_folder2ram")
+mount_point_folder2ram=$(read_folder2ram_mount_points "$line_number_folder2ram")
+
+#initializing flag
+flag_present=0
+
 ###################BEGIN UNTIL 2 LOOP::::::::::::
 until [ "$mount_point_folder2ram" = "no_more_mount_points" ] ;  do
-#initializing flag on 0
-flag_present=0
+
 #if mount point of cycle 1 does match the mount point of cycle 2 (that cycles through all folder2ram mount points)
 if [ "$mount_point" = "$mount_point_folder2ram" ]; then
 #raising flag
@@ -167,7 +170,7 @@ mount_point_folder2ram=$(read_folder2ram_mount_points "$line_number_folder2ram")
 done
 
 #if flag was NOT raised in cycle 2 the mount point was not matched, it has to be appended to the end of the config
-if [ "$flag_present" -eq 0 ]; then
+if [ "$flag_present" -eq "0" ]; then
 to_add=$(sed '/^[[:space:]]*$/d' /etc/fs2ram/fs2ram.conf | sed '/^#/d' | awk -v line="$line_number" 'NR == line {print $1, $2}') ;
 
 echo "$to_add" >> ${FOLDER2RAM_CONFIG}
