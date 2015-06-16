@@ -54,7 +54,7 @@ tmpfs           /var/lib/openmediavault/rrd
 tmpfs           /var/spool                  
 tmpfs           /var/lib/rrdcached/         
 tmpfs           /var/lib/monit              
-#tmpfs           /var/lib/php5               keep_folder_structure   # folder2ram does not have an equivalent yet
+tmpfs           /var/lib/php5               #keep_folder_structure   folder2ram does not have an equivalent yet
 EOF
 
 #since this script is called when activating first time the plugin, we can do away of the housekeeper script
@@ -156,6 +156,8 @@ flag_present=0
 ###################BEGIN UNTIL 2 LOOP::::::::::::
 until [ "$mount_point_folder2ram" = "no_more_mount_points" ] ;  do
 
+flag_present=0
+
 #if mount point of cycle 1 does match the mount point of cycle 2 (that cycles through all folder2ram mount points)
 if [ "$mount_point" = "$mount_point_folder2ram" ]; then
 #raising flag
@@ -170,7 +172,7 @@ mount_point_folder2ram=$(read_folder2ram_mount_points "$line_number_folder2ram")
 done
 
 #if flag was NOT raised in cycle 2 the mount point was not matched, it has to be appended to the end of the config
-if [ "$flag_present" -eq "0" ]; then
+if [ "$flag_present" = "0" ]; then
 to_add=$(sed '/^[[:space:]]*$/d' /etc/fs2ram/fs2ram.conf | sed '/^#/d' | awk -v line="$line_number" 'NR == line {print $1, $2}') ;
 
 echo "$to_add" >> ${FOLDER2RAM_CONFIG}
@@ -228,7 +230,7 @@ fi
 
 #################### UTILITY FUNCTIONS
 
-read_fs2ram_mount_points() {
+read_mount_points() {
 # this reads config file at a predetemined line and extracts mount point 
 # $line_number must come from outside
 # blank lines and commented lines are ignored, so line_number refers only to actual mount points
@@ -237,7 +239,7 @@ line_number=$1
 
 # remove blank and commented lines with sed,
 # get variable form outside in awk, and use it to print line at $line_number
-mount_point=$( sed '/^[[:space:]]*$/d' /etc/fs2ram/fs2ram.conf | sed '/^#/d' | awk -v line="$line_number" 'NR == line {print $2}' )
+mount_point=$( sed '/^[[:space:]]*$/d' /etc/folder2ram/folder2ram.conf | sed '/^#/d' | awk -v line="$line_number" 'NR == line {print $2}' )
 
 # checking if mount point variable is empty, and if it is returning a keyword
 if [ "x$mount_point" != "x" ]; then
@@ -259,7 +261,7 @@ line_number=1
 ######################CHECKING IF THERE ARE STILL MOUNT POINTS
 
 # calling another function (above) to fill the mount point at this line number
-mount_point=$(read_fs2ram_mount_points "$line_number")
+mount_point=$(read_mount_points "$line_number")
 
 #########################################################
 
@@ -297,7 +299,7 @@ line_number=$((line_number+1))
 ################CHECKING IF THERE ARE STILL MOUNT POINTS
 
 # calling another function (above) to fill the mount point at this line number
-mount_point=$(read_fs2ram_mount_points "$line_number")
+mount_point=$(read_mount_points "$line_number")
 
 ########################################################
 
