@@ -12,17 +12,17 @@ case "$1" in
 
         # find root device and save for displaying write totals
         for device in $(blkid -o device); do
-            [ "$(stat --format '%04D' /)" = "$(stat --format '%02t%02T' "$device")" ] && root="$device" && break
+            [ "$(stat --format '%04D' /)" = "$(stat --format '%02t%02T' $device)" ] && root="$device" && break
         done
 
         # Add the default configuration
         if ! omv_config_exists "${SERVICE_XPATH}"; then
-            omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}";
-            omv_config_add_element "${SERVICE_XPATH}" "enable" "0" ; 
+            omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
+            omv_config_add_element "${SERVICE_XPATH}" "enable" "0" 
         fi
 
         if ! omv_config_exists "${SERVICE_XPATH}/root"; then
-            omv_config_add_element "${SERVICE_XPATH}" "root" "${root}" ;
+            omv_config_add_element "${SERVICE_XPATH}" "root" "${root}" 
         fi
         
         #if there is no config file we generate it now (the flashmemory script runs only if service is enabled)
