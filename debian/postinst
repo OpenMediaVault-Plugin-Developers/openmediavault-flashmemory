@@ -17,12 +17,19 @@ case "$1" in
 
         # Add the default configuration
         if ! omv_config_exists "${SERVICE_XPATH}"; then
-            omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
-            omv_config_add_element "${SERVICE_XPATH}" "enable" "0"  
+            omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}";
+            omv_config_add_element "${SERVICE_XPATH}" "enable" "0" ; 
         fi
 
         if ! omv_config_exists "${SERVICE_XPATH}/root"; then
-            omv_config_add_element "${SERVICE_XPATH}" "root" "${root}"
+            omv_config_add_element "${SERVICE_XPATH}" "root" "${root}" ;
+        fi
+        
+        #if fs2ram is detected, the service must be stopped so the migration can happen.
+        if omv_config_exists "${SERVICE_XPATH}"; then
+            if [ -f /sbin/fs2ram ]; then
+            omv_config_update "${SERVICE_XPATH}" "disable" "0" ;
+            fi
         fi
 
         # Activate package triggers. These triggers are only set during the
