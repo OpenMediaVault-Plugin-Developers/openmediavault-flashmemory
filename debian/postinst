@@ -25,12 +25,14 @@ case "$1" in
             omv_config_add_element "${SERVICE_XPATH}" "root" "${root}" ;
         fi
         
-        #if fs2ram is detected, the service must be stopped so the migration can happen.
-        if omv_config_exists "${SERVICE_XPATH}"; then
-            if [ -f /sbin/fs2ram ]; then
-            omv_config_update "${SERVICE_XPATH}" "disable" "0" ;
-            fi
+        #if there is no config file we generate it now (the flashmemory script runs only if service is enabled)
+        #and we also start folder2ram afterwards
+        if [ -f /etc/folder2ram/folder2ram.conf ]; then
+        /usr/share/openmediavault/mkconf/flashmemory ;
+        folder2ram -generate ;
+        folder2ram -mountall ;
         fi
+        
 
         # Activate package triggers. These triggers are only set during the
         # package installation.
