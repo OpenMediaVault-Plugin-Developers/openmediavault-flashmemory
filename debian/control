@@ -9,8 +9,11 @@ Homepage: http://omv-extras.org/
 
 Package: openmediavault-flashmemory
 Architecture: all
+Conflicts: fs2ram
+Replaces: fs2ram
 Depends: openmediavault (>= 1.12),
          folder2ram,
          ${misc:Depends}
 Description: folder2ram plugin for OpenMediaVault
- folder2ram manages temporary file systems across reboots.
+ folder2ram manages temporary file systems across reboots, to decrease writes on permanent storage.
+ This allows the installation of OMV on flash thumb drives and SD cards.
