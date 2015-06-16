@@ -69,8 +69,4 @@ EOF
     rm -fr /var/cache/apt/archives/*
     mkdir -p /var/cache/apt/archives/partial
 
-
-#unmounting all /var folders for safety
-umount -t tmpfs /var/*
-
 exit 0
