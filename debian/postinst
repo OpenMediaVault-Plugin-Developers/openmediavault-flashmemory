@@ -25,12 +25,9 @@ case "$1" in
             omv_config_add_element "${SERVICE_XPATH}" "root" "${root}" 
         fi
         
-        #if there is no config file we generate it now (the flashmemory script runs only if service is enabled)
-        #and we also start folder2ram afterwards
+        #if there already a config file it means folder2ram was already running so it needs a refresh.
         if [ -f /etc/folder2ram/folder2ram.conf ]; then
-        /usr/share/openmediavault/mkconf/flashmemory ;
-        folder2ram -generate ;
-        folder2ram -mountall ;
+        folder2ram -refresh ;
         fi
         
 
