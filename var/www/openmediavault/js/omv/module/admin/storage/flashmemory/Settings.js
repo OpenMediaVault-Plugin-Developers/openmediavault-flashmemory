@@ -43,7 +43,7 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                 name       : "enable",
                 fieldLabel : _("Enable"),
                 checked    : false,
-                boxLabel   : _(" Settings active immediately. If fs2ram package is detected the system will reboot to migrate safely its folders to this plugin, and then purge fs2ram"),
+                boxLabel   : _(" Settings active immediately. If fs2ram package is detected you will be logged out while it is purged"),
             }]
         },{
             xtype    : "fieldset",
