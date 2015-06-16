@@ -9,9 +9,9 @@ Homepage: http://omv-extras.org/
 
 Package: openmediavault-flashmemory
 Architecture: all
-Provides: fs2ram
-Conflicts: fs2ram
-Replaces: fs2ram
+Provides: fs2ram, openmediavault-flashmemory
+Conflicts: fs2ram, openmediavault-flashmemory
+Replaces: fs2ram, openmediavault-flashmemory
 Depends: openmediavault (>= 1.12),
          folder2ram,
          ${misc:Depends}
