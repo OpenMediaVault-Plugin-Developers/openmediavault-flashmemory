@@ -28,17 +28,12 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 {
     public function getName()
     {
-        return "flashmemory";
+        return "Flashmemory";
     }
 
     private function getPluginName()
     {
         return strtolower( $this->getName() );
-    }
-
-    private function getServiceName()
-    {
-        return "fs2ram";
     }
 
     private function getXPath()
@@ -53,7 +48,7 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 
     public function applyConfig()
     {
-        $cmd = sprintf("omv-mkconf %s 2>&1", $this->getName());
+        $cmd = sprintf("omv-mkconf %s 2>&1", $this->getPluginName());
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
@@ -67,6 +62,19 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
     public function startService()
     {
         global $xmlConfig;
+        
+// when OMV runs these commands, this will power up folder2ram
+
+	$cmd = sprintf("folder2ram -refresh 2>&1 && folder2ram -mountall 2>&1");
+
+        if (0 !== $this->exec($cmd, $output)) {
+            throw new OMVException(
+                OMVErrorMsg::E_EXEC_FAILED,
+                $cmd,
+                implode("\n", $output)
+            );
+        }
+
 
         $object = $xmlConfig->get($this->getXPath());
 
@@ -81,14 +89,23 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
             return;
         }
 
-        $initd = new OMVSysVInitScript($this->getServiceName(), true);
-        $initd->exec();
     }
 
     public function stopService()
     {
-        $initd = new OMVSysVInitScript($this->getServiceName());
-        $initd->exec();
+
+// when OMV runs these commands, it will power down folder2ram.
+
+	$cmd = sprintf("folder2ram -clean 2>&1");
+
+        if (0 !== $this->exec($cmd, $output)) {
+            throw new OMVException(
+                OMVErrorMsg::E_EXEC_FAILED,
+                $cmd,
+                implode("\n", $output)
+            );
+        }
+
     }
 
     public function bindListeners(OMVNotifyDispatcher $dispatcher)
@@ -106,3 +123,5 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleFlashmemory());
+
+?>

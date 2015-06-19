@@ -43,27 +43,29 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                 name       : "enable",
                 fieldLabel : _("Enable"),
                 checked    : false,
-                boxLabel   : _("When enabling the plugin, you will be logged out due to files being moved to ram."),
+                boxLabel   : _(" Settings active immediately. If fs2ram package is detected you will be logged out while it is purged"),
             }]
         },{
-            xtype    : "fieldset",
-            title    : "Details",
-            defaults : {
-                labelSeparator : ""
-            },
-            items : [{
-                xtype       : "textfield",
-                name        : "root",
-                fieldLabel  : _("Root"),
-                readOnly    : true
-            },{
-                xtype       : "textfield",
-                name        : "written",
-                fieldLabel  : _("Write Kbytes"),
-                submitValue : false,
-                readOnly    : true
-            }]
-        },{
+// disabled, was showing amount of kilobytes written to root folder, now is broken somehow
+// and I know too little to fix it -bobafetthotmail
+//            xtype    : "fieldset",
+//            title    : "Details",
+//            defaults : {
+//                labelSeparator : ""
+//            },
+//            items : [{
+//                xtype       : "textfield",
+//                name        : "root",
+//                fieldLabel  : _("Root"),
+//                readOnly    : true
+//            },{
+//                xtype       : "textfield",
+//                name        : "written",
+//                fieldLabel  : _("Write Kbytes"),
+//                submitValue : false,
+//                readOnly    : true
+//            }]
+//        },{
             xtype         : "fieldset",
             title         : _("Notes"),
             fieldDefaults : {
