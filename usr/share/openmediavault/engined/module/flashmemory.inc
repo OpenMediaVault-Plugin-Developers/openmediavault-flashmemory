@@ -106,6 +106,8 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
             );
         }
 
+
+
     }
 
     public function bindListeners(OMVNotifyDispatcher $dispatcher)
