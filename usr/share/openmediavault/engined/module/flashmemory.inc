@@ -48,6 +48,9 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
 
     public function applyConfig()
     {
+
+// here we don't need a check like below because there is a check inside the script
+
         $cmd = sprintf("omv-mkconf %s 2>&1", $this->getPluginName());
 
         if (0 !== $this->exec($cmd, $output)) {
@@ -63,18 +66,9 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
     {
         global $xmlConfig;
         
-// when OMV runs these commands, this will power up folder2ram
-
-	$cmd = sprintf("folder2ram -refresh > 1refresh.log && folder2ram -generate > 1generate.log && folder2ram -mountall > 1mountall.log");
-
-        if (0 !== $this->exec($cmd, $output)) {
-            throw new OMVException(
-                OMVErrorMsg::E_EXEC_FAILED,
-                $cmd,
-                implode("\n", $output)
-            );
-        }
-
+// This is a check that controls if the webinterface box is ticked or not.
+// If it is not ticked (= the service must be disabled), it exits the function before the command below is executed
+// All functions here appear to be called together and this check prevents execution in wrong situations
 
         $object = $xmlConfig->get($this->getXPath());
 
@@ -88,8 +82,18 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
         if (!boolval($object["enable"])) {
             return;
         }
+        
+// when OMV runs these commands, this will power up folder2ram
 
-    }
+	$cmd = sprintf("folder2ram -refresh > 1refresh.log && folder2ram -generate > 1generate.log && folder2ram -mountall > 1mountall.log");
+
+        if (0 !== $this->exec($cmd, $output)) {
+            throw new OMVException(
+                OMVErrorMsg::E_EXEC_FAILED,
+                $cmd,
+                implode("\n", $output)
+            );
+        }
 
     public function stopService()
     {
