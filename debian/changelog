@@ -1,3 +1,9 @@
+openmediavault-flashmemory (1.9) stable; urgency=low
+
+  * Fix minor bug
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 25 Jun 2015 06:04:56 -0500
+
 openmediavault-flashmemory (1.8) stable; urgency=low
 
   * migrating the plugin to folder2ram, dropping fs2ram.
