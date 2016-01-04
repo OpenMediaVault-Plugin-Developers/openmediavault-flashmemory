@@ -85,7 +85,7 @@ class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
         
 // when OMV runs these commands, this will power up folder2ram
 
-       $cmd = sprintf("folder2ram -refresh 2>&1 && folder2ram -generate 2>&1 && folder2ram -mountall 2>&1");
+       $cmd = sprintf("folder2ram -refresh 2>&1 && folder2ram -generate 2>&1");
 
         if (0 !== $this->exec($cmd, $output)) {
             throw new OMVException(
