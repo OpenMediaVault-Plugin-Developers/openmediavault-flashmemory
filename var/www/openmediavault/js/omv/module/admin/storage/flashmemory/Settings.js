@@ -55,6 +55,7 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                 xtype       : "textfield",
                 name        : "root",
                 fieldLabel  : _("Root"),
+                submitValue : false,
                 readOnly    : true
             },{
                 xtype       : "textfield",

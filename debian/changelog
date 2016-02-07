@@ -1,3 +1,10 @@
+openmediavault-flashmemory (1.9.2) stable; urgency=low
+
+  * Determine root partition every time getSettings is called
+  * Add omv-showroot
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 07 Feb 2016 15:12:00 -0600
+
 openmediavault-flashmemory (1.9.1) stable; urgency=low
 
   * Fix github issue #11

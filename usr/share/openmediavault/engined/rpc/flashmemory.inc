@@ -74,7 +74,8 @@ class OMVRpcServiceFlashmemory extends OMVRpcServiceAbstract
         $object["enable"] = intval($object["enable"]);
 
         // Get session_write_kbytes for root drive
-        $root = explode("/", $object['root']);
+        OMVUtil::exec("/usr/sbin/omv-showroot", $output, $result);
+        $root = explode("/", $output[0]);
         $object["written"] = file_get_contents(
             sprintf("/sys/fs/ext4/%s/session_write_kbytes", $root[2])
         );
@@ -97,16 +98,14 @@ class OMVRpcServiceFlashmemory extends OMVRpcServiceAbstract
             '{
                 "type"       : "object",
                 "properties" : {
-                    "enable"  : { "type" : "boolean" },
-                    "root"    : { "type" : "string" }
+                    "enable"  : { "type" : "boolean" }
                 }
             }'
         );
 
         // Prepare configuration data
         $object = array(
-            "enable" => array_boolval($params, "enable"),
-            "root"   => $params['root']
+            "enable" => array_boolval($params, "enable")
         );
 
         // Set configuration object

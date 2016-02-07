@@ -11,9 +11,7 @@ case "$1" in
         SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
         # find root device and save for displaying write totals
-        for device in $(blkid -o device); do
-            [ "$(stat --format '%04D' /)" = "$(stat --format '%02t%02T' $device)" ] && root="$device" && break
-        done
+        root=$(/usr/sbin/omv-showroot)
 
         # Add the default configuration
         if ! omv_config_exists "${SERVICE_XPATH}"; then
@@ -21,15 +19,10 @@ case "$1" in
             omv_config_add_element "${SERVICE_XPATH}" "enable" "0" 
         fi
 
-        if ! omv_config_exists "${SERVICE_XPATH}/root"; then
-            omv_config_add_element "${SERVICE_XPATH}" "root" "${root}" 
-        fi
-        
         #if there already a config file it means folder2ram was already running so it needs a refresh.
         if [ -f /etc/folder2ram/folder2ram.conf ]; then
-        folder2ram -refresh ;
+            folder2ram -refresh ;
         fi
-        
 
         # Activate package triggers. These triggers are only set during the
         # package installation.
