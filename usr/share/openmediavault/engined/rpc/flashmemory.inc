@@ -76,6 +76,7 @@ class OMVRpcServiceFlashmemory extends OMVRpcServiceAbstract
         // Get session_write_kbytes for root drive
         OMVUtil::exec("/usr/sbin/omv-showroot", $output, $result);
         $root = explode("/", $output[0]);
+        $object["root"] = $output[0];
         $object["written"] = file_get_contents(
             sprintf("/sys/fs/ext4/%s/session_write_kbytes", $root[2])
         );
