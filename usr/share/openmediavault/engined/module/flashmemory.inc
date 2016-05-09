@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2015 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2016 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,116 +16,50 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-require_once "openmediavault/config.inc";
-require_once "openmediavault/error.inc";
-require_once "openmediavault/initscript.inc";
-require_once "openmediavault/module.inc";
-require_once "openmediavault/util.inc";
-
-class OMVModuleFlashmemory extends OMVModuleServiceAbstract implements
-    OMVINotifyListener
+class OMVModuleFlashmemory extends \OMV\Engine\Module\ServiceAbstract
+    implements \OMV\Engine\Notify\IListener
 {
     public function getName()
     {
         return "Flashmemory";
     }
 
-    private function getPluginName()
-    {
-        return strtolower( $this->getName() );
-    }
-
-    private function getXPath()
-    {
-        return sprintf( "//services/%s", $this->getPluginName() );
-    }
-
-    private function getEventMessagePath()
-    {
-        return sprintf( "org.openmediavault.services.%s", $this->getPluginName() );
-    }
-
     public function applyConfig()
     {
-
-// here we don't need a check like below because there is a check inside the script
-
-        $cmd = sprintf("omv-mkconf %s 2>&1", $this->getPluginName());
-
-        if (0 !== $this->exec($cmd, $output)) {
-            throw new OMVException(
-                OMVErrorMsg::E_EXEC_FAILED,
-                $cmd,
-                implode("\n", $output)
-            );
-        }
+        $cmd = new \OMV\System\Process("omv-mkconf", "flashmemory");
+        $cmd->setRedirect2to1(TRUE);
+        $cmd->execute();
     }
 
     public function startService()
     {
-        global $xmlConfig;
-        
-// This is a check that controls if the webinterface box is ticked or not.
-// If it is not ticked (= the service must be disabled), it exits the function before the command below is executed
-// All functions here appear to be called together and this check prevents execution in wrong situations
-
-        $object = $xmlConfig->get($this->getXPath());
-
-        if (is_null($object)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
-            );
-        }
-
-        if (!boolval($object["enable"])) {
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.flashmemory");
+        if (TRUE !== $object->get("enable"))
             return;
-        }
-        
-// when OMV runs these commands, this will power up folder2ram
 
-       $cmd = sprintf("folder2ram -refresh 2>&1 && folder2ram -generate 2>&1");
-
+        // start folder2ram
+        $cmd = sprintf("folder2ram -enablesystemd 2>&1");
         if (0 !== $this->exec($cmd, $output)) {
-            throw new OMVException(
-                OMVErrorMsg::E_EXEC_FAILED,
-                $cmd,
-                implode("\n", $output)
-            );
+            throw new \OMV\Exception(implode("\n", $output));
         }
     }
 
     public function stopService()
     {
-
-// when OMV runs these commands, it will power down folder2ram.
-
-       $cmd = sprintf("folder2ram -clean 2>&1");
-
+        // stop folder2ram
+        $cmd = sprintf("folder2ram -disablesystemd 2>&1");
         if (0 !== $this->exec($cmd, $output)) {
-            throw new OMVException(
-                OMVErrorMsg::E_EXEC_FAILED,
-                $cmd,
-                implode("\n", $output)
-            );
+            throw new \OMV\Exception(implode("\n", $output));
         }
     }
 
-    public function bindListeners(OMVNotifyDispatcher $dispatcher)
+    public function bindListeners(\OMV\Engine\Notify\Dispatcher $dispatcher)
     {
-        $moduleMgr = &OMVModuleMgr::getInstance();
-
         $dispatcher->addListener(
             OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePath(),
-            array($this, "setDirty")
+            "org.openmediavault.services.flashmemory",
+            [ $this, "setDirty" ]
         );
     }
 }
-
-// Register module
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleFlashmemory());
-
-?>

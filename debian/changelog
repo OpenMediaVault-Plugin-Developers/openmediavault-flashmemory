@@ -1,15 +1,26 @@
-openmediavault-flashmemory (1.9.2) stable; urgency=low
+openmediavault-flashmemory (3.3) stable; urgency=low
 
-  * Determine root partition every time getSettings is called
-  * Add omv-showroot
+  * Update for datamodels
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 07 Feb 2016 15:12:00 -0600
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 08 May 2016 22:26:55 -0500
 
-openmediavault-flashmemory (1.9.1) stable; urgency=low
+openmediavault-flashmemory (3.2) stable; urgency=low
 
-  * Fix github issue #11
+  * Changed dependency of OMV Package to <= 3.0.13 to avoid accidental user updates
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 04 Jan 2016 12:41:43 -0600
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 05 Apr 2016 16:06:49 -0400
+
+openmediavault-flashmemory (3.1) stable; urgency=low
+
+  * changed the folder2ram commandline arguments
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org> Sun, 31 Jan 2016 18:21:35 +0200
+
+openmediavault-flashmemory (3.0) stable; urgency=low
+
+  * Adapt to OMV 3
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 11 Jan 2016 13:00:45 -0600
 
 openmediavault-flashmemory (1.9) stable; urgency=low
 

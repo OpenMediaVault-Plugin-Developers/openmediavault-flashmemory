@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2016 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                 name       : "enable",
                 fieldLabel : _("Enable"),
                 checked    : false,
-                boxLabel   : _(" Plugin will be fully activated after a reboot. If fs2ram package is detected you will be logged out while it is purged"),
+                boxLabel   : _("Settings active immediately."),
             }]
         },{
             xtype    : "fieldset",

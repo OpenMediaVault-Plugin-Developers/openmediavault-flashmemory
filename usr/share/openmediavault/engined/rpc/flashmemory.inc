@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2015 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2016 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,34 +15,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-require_once "openmediavault/config.inc";
-require_once "openmediavault/error.inc";
-require_once "openmediavault/notify.inc";
-require_once "openmediavault/object.inc";
-require_once "openmediavault/rpcservice.inc";
-require_once "openmediavault/util.inc";
-
-class OMVRpcServiceFlashmemory extends OMVRpcServiceAbstract
+class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
 {
     public function getName()
     {
         return "Flashmemory";
-    }
-
-    private function getPluginName()
-    {
-        return strtolower( $this->getName() );
-    }
-
-    private function getXPath()
-    {
-        return sprintf( "//services/%s", $this->getPluginName() );
-    }
-
-    private function getEventMessagePath()
-    {
-        return sprintf( "org.openmediavault.services.%s", $this->getPluginName() );
     }
 
     public function initialize()
@@ -53,80 +30,40 @@ class OMVRpcServiceFlashmemory extends OMVRpcServiceAbstract
 
     public function getSettings($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext($context, array(
-            "role" => OMV_ROLE_ADMINISTRATOR
-        ));
-
-        // Get configuration object
-        $object = $xmlConfig->get($this->getXPath());
-
-        if (is_null($object)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-                $this->getXPath()
-            );
-        }
-
-        // Modify result data
-        $object["enable"] = intval($object["enable"]);
-
-        // Get session_write_kbytes for root drive
-        OMVUtil::exec("/usr/sbin/omv-showroot", $output, $result);
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
+        // Get root drive and data written
+        exec("/usr/sbin/omv-showroot", $output);
         $root = explode("/", $output[0]);
-        $object["root"] = $output[0];
-        $object["written"] = file_get_contents(
-            sprintf("/sys/fs/ext4/%s/session_write_kbytes", $root[2])
-        );
-
-        return $object;
+        // Get session_write_kbytes for root drive
+        $written = file_get_contents(sprintf("/sys/fs/ext4/%s/session_write_kbytes", $root[2]));
+        // Get the configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.flashmemory");
+        $object->set("root", $output[0]);
+        $object->set("written", $written);
+        return $object->getAssoc();
     }
 
     public function setSettings($params, $context)
     {
-        global $xmlConfig;
-
         // Validate the RPC caller context.
-        $this->validateMethodContext($context, array(
-            "role" => OMV_ROLE_ADMINISTRATOR
-        ));
-
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Validate the parameters of the RPC service method.
-        $this->validateMethodParams(
-            $params,
-            '{
-                "type"       : "object",
-                "properties" : {
-                    "enable"  : { "type" : "boolean" }
-                }
-            }'
-        );
-
-        // Prepare configuration data
-        $object = array(
-            "enable" => array_boolval($params, "enable")
-        );
-
-        // Set configuration object
-        if (false === $xmlConfig->replace($this->getXPath(), $object)) {
-            throw new OMVException(
-                OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED,
-                $this->getXPath()
-            );
-        }
-
-        // Notify configuration changes
-        $dispatcher = &OMVNotifyDispatcher::getInstance();
+        $this->validateMethodParams($params, "rpc.flashmemory.setsettings");
+        // Get the existing configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.flashmemory");
+        $object->setAssoc($params);
+        $db->set($object);
+        // Notify configuration changes.
+        $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
         $dispatcher->notify(
             OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePath(),
-            $object
+            "org.openmediavault.services.flashmemory",
+            $object->getAssoc()
         );
+        // Return the configuration object.
+        return $object->getAssoc();
     }
 }
-
-// Register the RPC service.
-$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceFlashmemory());
