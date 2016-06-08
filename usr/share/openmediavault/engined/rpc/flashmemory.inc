@@ -56,13 +56,6 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
         $object = $db->get("conf.service.flashmemory");
         $object->setAssoc($params);
         $db->set($object);
-        // Notify configuration changes.
-        $dispatcher = \OMV\Engine\Notify\Dispatcher::getInstance();
-        $dispatcher->notify(
-            OMV_NOTIFY_MODIFY,
-            "org.openmediavault.services.flashmemory",
-            $object->getAssoc()
-        );
         // Return the configuration object.
         return $object->getAssoc();
     }

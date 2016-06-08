@@ -1,3 +1,9 @@
+openmediavault-flashmemory (3.4) stable; urgency=low
+
+  * Update for auto notifications
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 07 Jun 2016 20:33:18 -0500
+
 openmediavault-flashmemory (3.3) stable; urgency=low
 
   * Update for datamodels
