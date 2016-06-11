@@ -1,3 +1,9 @@
+openmediavault-flashmemory (3.4.1) stable; urgency=low
+
+  * Fix notification typo
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 11 Jun 2016 10:26:55 -0500
+
 openmediavault-flashmemory (3.4) stable; urgency=low
 
   * Update for auto notifications

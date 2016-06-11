@@ -27,7 +27,7 @@ class OMVModuleFlashmemory extends \OMV\Engine\Module\ServiceAbstract
     public function applyConfig()
     {
         $cmd = new \OMV\System\Process("omv-mkconf", "flashmemory");
-        $cmd->setRedirect2to1(TRUE);
+        $cmd->setRedirect2to1();
         $cmd->execute();
     }
 
@@ -58,7 +58,7 @@ class OMVModuleFlashmemory extends \OMV\Engine\Module\ServiceAbstract
     {
         $dispatcher->addListener(
             OMV_NOTIFY_MODIFY,
-            "org.openmediavault.services.flashmemory",
+            "org.openmediavault.conf.service.flashmemory",
             [ $this, "setDirty" ]
         );
     }
