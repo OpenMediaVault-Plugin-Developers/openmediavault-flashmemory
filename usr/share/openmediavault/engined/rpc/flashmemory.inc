@@ -33,10 +33,16 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         // Get root drive and data written
-        exec("/usr/sbin/omv-showroot", $output);
+        $cmd = new \OMV\System\Process("omv-showroot");
+        $cmd->setQuiet(true);
+        $cmd->execute($output);
         $root = explode("/", $output[0]);
         // Get session_write_kbytes for root drive
-        $written = file_get_contents(sprintf("/sys/fs/ext4/%s/session_write_kbytes", $root[2]));
+        $written = gettext("n/a");
+        $writefile = sprintf("/sys/fs/ext4/%s/session_write_kbytes", $root[2]);
+        if (file_exists($writefile)) {
+            $written = file_get_contents($writefile);
+        }
         // Get the configuration object.
         $db = \OMV\Config\Database::getInstance();
         $object = $db->get("conf.service.flashmemory");
