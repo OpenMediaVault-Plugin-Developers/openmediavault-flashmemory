@@ -1,3 +1,9 @@
+openmediavault-flashmemory (3.4.3) stable; urgency=low
+
+  * Update for OMV 3.0.40
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Tue, 27 Sep 2016 21:01:26 -0500
+
 openmediavault-flashmemory (3.4.2) stable; urgency=low
 
   * Fix data written field when using non-EXT4 root
