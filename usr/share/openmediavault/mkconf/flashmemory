@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright (C) 2015-2016 OpenMediaVault Plugin Developers
+# Copyright (C) 2015-2017 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -33,6 +33,9 @@ fi
 # now running with folder2ram instead, written based on the info here
 # https://www.debian-administration.org/article/661/A_transient_/var/log
 
+# create directories that may not exist
+mkdir -p /var/lib/openmediavault/rrd /var/lib/netatalk/CNID
+
 # create folder2ram config
 cat > ${FOLDER2RAM_CONFIG} <<'EOF'
 #################################################################################
@@ -55,6 +58,7 @@ tmpfs           /var/spool
 tmpfs           /var/lib/rrdcached/
 tmpfs           /var/lib/monit
 tmpfs           /var/lib/php5               #keep_folder_structure   folder2ram does not have an equivalent yet
+tmpfs           /var/lib/netatalk/CNID
 EOF
 
 #since this script is called when activating first time the plugin, we can do away of the housekeeper script
