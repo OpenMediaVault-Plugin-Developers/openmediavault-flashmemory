@@ -34,7 +34,7 @@ fi
 # https://www.debian-administration.org/article/661/A_transient_/var/log
 
 # create directories that may not exist
-mkdir -p /var/lib/openmediavault/rrd /var/lib/netatalk/CNID
+mkdir -p /var/lib/openmediavault/rrd /var/lib/netatalk/CNID /var/cache/samba
 
 # create folder2ram config
 cat > ${FOLDER2RAM_CONFIG} <<'EOF'
@@ -59,6 +59,7 @@ tmpfs           /var/lib/rrdcached/
 tmpfs           /var/lib/monit
 tmpfs           /var/lib/php5               #keep_folder_structure   folder2ram does not have an equivalent yet
 tmpfs           /var/lib/netatalk/CNID
+tmpfs           /var/cache/samba
 EOF
 
 #since this script is called when activating first time the plugin, we can do away of the housekeeper script
