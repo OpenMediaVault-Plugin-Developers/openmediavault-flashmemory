@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (C) 2015-2016 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2017 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,18 +39,18 @@ class OMVModuleFlashmemory extends \OMV\Engine\Module\ServiceAbstract
             return;
 
         // start folder2ram
-        $cmd = sprintf("folder2ram -enablesystemd 2>&1");
-        if (0 !== $this->exec($cmd, $output)) {
-            throw new \OMV\Exception(implode("\n", $output));
-        }
+        $cmd = sprintf("folder2ram -enablesystemd");
+        $process = new OMV\System\Process($cmd);
+        $process->execute();
     }
 
     public function stopService()
     {
-        // stop folder2ram
-        $cmd = sprintf("folder2ram -disablesystemd 2>&1");
-        if (0 !== $this->exec($cmd, $output)) {
-            throw new \OMV\Exception(implode("\n", $output));
+        // stop folder2ram if config file exists
+        if (file_exists("/etc/folder2ram/folder2ram.conf")) {
+            $cmd = sprintf("folder2ram -disablesystemd");
+            $process = new OMV\System\Process($cmd);
+            $process->execute();
         }
     }
 
