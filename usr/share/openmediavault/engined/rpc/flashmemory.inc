@@ -42,11 +42,9 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
         if (file_exists($writefile)) {
             $written = file_get_contents($writefile);
         }
-        // Get the configuration object.
-        $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.service.flashmemory");
-        $object->set("root", $output[0]);
-        $object->set("written", $written);
-        return $object->getAssoc();
+        return [
+            "root" => $output[0],
+            "written" => $written
+        ];
     }
 }
