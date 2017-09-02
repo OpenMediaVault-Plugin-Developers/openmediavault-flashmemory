@@ -21,12 +21,6 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 FOLDER2RAM_CONFIG="/etc/folder2ram/folder2ram.conf"
-XPATH="//services/flashmemory"
-
-# Generate configuration only if the service is enabled.
-if [ "$(omv_config_get "${XPATH}/enable")" != "1" ]; then
-    exit 0
-fi
 
 # Original plugin from info here:
 # http://forums.openmediavault.org/index.php/Thread/6438-Tutorial-Experimental-Reducing-OMV-s-disk-writes-also-to-install-it-on-USB-flash/?pageNo=1
