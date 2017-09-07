@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2015-2016 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2017 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,6 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
     public function initialize()
     {
         $this->registerMethod("getSettings");
-        $this->registerMethod("setSettings");
     }
 
     public function getSettings($params, $context)
@@ -43,26 +42,9 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
         if (file_exists($writefile)) {
             $written = file_get_contents($writefile);
         }
-        // Get the configuration object.
-        $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.service.flashmemory");
-        $object->set("root", $output[0]);
-        $object->set("written", $written);
-        return $object->getAssoc();
-    }
-
-    public function setSettings($params, $context)
-    {
-        // Validate the RPC caller context.
-        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
-        // Validate the parameters of the RPC service method.
-        $this->validateMethodParams($params, "rpc.flashmemory.setsettings");
-        // Get the existing configuration object.
-        $db = \OMV\Config\Database::getInstance();
-        $object = $db->get("conf.service.flashmemory");
-        $object->setAssoc($params);
-        $db->set($object);
-        // Return the configuration object.
-        return $object->getAssoc();
+        return [
+            "root" => $output[0],
+            "written" => $written
+        ];
     }
 }

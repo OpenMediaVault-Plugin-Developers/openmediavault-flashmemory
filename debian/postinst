@@ -7,19 +7,9 @@ set -e
 
 case "$1" in
     configure)
-        SERVICE_XPATH_NAME="flashmemory"
-        SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
-
-        # Add the default configuration
-        if ! omv_config_exists "${SERVICE_XPATH}"; then
-            omv_config_add_node "/config/services" "${SERVICE_XPATH_NAME}"
-            omv_config_add_key "${SERVICE_XPATH}" "enable" "0"
-        fi
-
-        #if there already a config file it means folder2ram was already running so it needs a refresh.
-        if [ -f /etc/folder2ram/folder2ram.conf ]; then
-            folder2ram -refresh ;
-        fi
+        omv-mkconf flashmemory
+        folder2ram -enablesystemd
+        folder2ram -mountall
 
         # Activate package triggers. These triggers are only set during the
         # package installation.

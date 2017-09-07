@@ -21,12 +21,6 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 FOLDER2RAM_CONFIG="/etc/folder2ram/folder2ram.conf"
-XPATH="//services/flashmemory"
-
-# Generate configuration only if the service is enabled.
-if [ "$(omv_config_get "${XPATH}/enable")" != "1" ]; then
-    exit 0
-fi
 
 # Original plugin from info here:
 # http://forums.openmediavault.org/index.php/Thread/6438-Tutorial-Experimental-Reducing-OMV-s-disk-writes-also-to-install-it-on-USB-flash/?pageNo=1
@@ -57,16 +51,11 @@ tmpfs           /var/lib/openmediavault/rrd
 tmpfs           /var/spool
 tmpfs           /var/lib/rrdcached/
 tmpfs           /var/lib/monit
-tmpfs           /var/lib/php5               #keep_folder_structure   folder2ram does not have an equivalent yet
+tmpfs           /var/lib/php                #keep_folder_structure   folder2ram does not have an equivalent yet
 tmpfs           /var/lib/netatalk/CNID
 tmpfs           /var/cache/samba
 EOF
 
-#since this script is called when activating first time the plugin, we can do away of the housekeeper script
-
-#disabling apt disk cache so its folder in /var/cache/apt/whatever will stop filling up. Also saves additional writes.
-#    echo 'Dir::Cache "";' > /etc/apt/apt.conf.d/02nocache
-#    echo 'Dir::Cache::archives "";' >> /etc/apt/apt.conf.d/02nocache
 #disabling cron-apt package download by erasing the file asking for it.
     rm -f /etc/cron-apt/action.d/3-download
 #deleting the packages already in the cache, because otherwise this is all wasted space in the tmpfs

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015-2016 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2017 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,23 +29,11 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
 
     rpcService   : "Flashmemory",
     rpcGetMethod : "getSettings",
-    rpcSetMethod : "setSettings",
+
+    hideOkButton : true,
 
     getFormItems : function() {
         return [{
-            xtype    : "fieldset",
-            title    : "General settings",
-            defaults : {
-                labelSeparator : ""
-            },
-            items : [{
-                xtype      : "checkbox",
-                name       : "enable",
-                fieldLabel : _("Enable"),
-                checked    : false,
-                boxLabel   : _("Settings active immediately."),
-            }]
-        },{
             xtype    : "fieldset",
             title    : "Details",
             defaults : {
@@ -66,7 +54,7 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
             }]
         },{
             xtype         : "fieldset",
-            title         : _("Notes"),
+            title         : _("Notes (optional)"),
             fieldDefaults : {
                 labelSeparator : ""
             },

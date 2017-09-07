@@ -1,3 +1,15 @@
+openmediavault-flashmemory (4.1) stable; urgency=low
+
+  * remove enable
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 02 Sep 2017 18:40:02 -0500
+
+openmediavault-flashmemory (4.0) stable; urgency=low
+
+  * Update for OMV 4.x
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 01 Sep 2017 12:16:22 -0500
+
 openmediavault-flashmemory (3.4.5) stable; urgency=low
 
   * Fix enable on fresh install
