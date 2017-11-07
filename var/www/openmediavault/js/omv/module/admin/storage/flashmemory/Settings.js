@@ -80,7 +80,6 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                              "</dl>" +
                           "<li>" + _("Ctrl-o to save") + "</li>" +
                           "<li>" + _("Ctrl-x to exit") + "</li>" +
-                          "<li>" + _("Enable the plugin") + "</li>" +
                           "<li>" + _("Reboot") + "</li>" +
                          "</ol>" +
                          "</p>"
