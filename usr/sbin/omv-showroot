@@ -1,5 +1,3 @@
 #!/bin/sh
-for device in $(blkid -o device); do
-  [ "$(stat --format '%04D' /)" = "$(stat --format '%02t%02T' $device)" ] && root="$device" && break
-done
-echo $root
+
+awk '$5 == "/" { print $10 }' /proc/self/mountinfo
