@@ -1,3 +1,10 @@
+openmediavault-flashmemory (4.2) stable; urgency=low
+
+  * adapted config file to deal with folder2ram config parsing change 
+    (now paths with spaces are suppported)
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 04 Sep 2018 15:20:02 +0200
+
 openmediavault-flashmemory (4.1) stable; urgency=low
 
   * remove enable

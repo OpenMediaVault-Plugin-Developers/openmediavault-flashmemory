@@ -12,7 +12,7 @@ Architecture: all
 Provides: fs2ram
 Conflicts: fs2ram
 Replaces: fs2ram
-Depends: folder2ram (>= 0.2.4),
+Depends: folder2ram (>= 0.2.9),
          openmediavault (>= 3.0.40),
          ${misc:Depends}
 Description: folder2ram plugin for OpenMediaVault
