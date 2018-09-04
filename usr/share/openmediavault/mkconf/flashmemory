@@ -44,16 +44,16 @@ cat > ${FOLDER2RAM_CONFIG} <<'EOF'
 #OPTIONS: does nothing, will be implemented in the future.
 #
 #<file system>  <mount point>                 <options>
-#tmpfs           /var/cache                 #this folder will be activated later after testing is completed
-tmpfs           /var/log
-tmpfs           /var/tmp
-tmpfs           /var/lib/openmediavault/rrd
-tmpfs           /var/spool
-tmpfs           /var/lib/rrdcached/
-tmpfs           /var/lib/monit
-tmpfs           /var/lib/php                #keep_folder_structure   folder2ram does not have an equivalent yet
-tmpfs           /var/lib/netatalk/CNID
-tmpfs           /var/cache/samba
+#tmpfs      /var/cache      #this folder will be activated later after testing is completed
+tmpfs       /var/log
+tmpfs       /var/tmp
+tmpfs       /var/lib/openmediavault/rrd
+tmpfs       /var/spool
+tmpfs       /var/lib/rrdcached/
+tmpfs       /var/lib/monit
+tmpfs       /var/lib/php        #keep_folder_structure   folder2ram does not have an equivalent yet
+tmpfs       /var/lib/netatalk/CNID
+tmpfs       /var/cache/samba
 EOF
 
 #disabling cron-apt package download by erasing the file asking for it.
