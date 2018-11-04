@@ -1,8 +1,8 @@
-openmediavault-flashmemory (4.3) UNRELEASED; urgency=medium
+openmediavault-flashmemory (4.2.1) stable; urgency=low
 
   * Update for folder2ram 0.3.1
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 04 Nov 2018 17:23:00 -0600
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 04 Nov 2018 17:48:28 -0600
 
 openmediavault-flashmemory (4.2) stable; urgency=low
 
