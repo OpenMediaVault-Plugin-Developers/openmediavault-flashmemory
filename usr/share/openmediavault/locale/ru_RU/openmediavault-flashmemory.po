@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Дмитрий <bardimnik@rambler.ru>, 2018
+# Артур Мудрых <arturmon82@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-08 22:34-0500\n"
-"PO-Revision-Date: 2016-05-09 03:34+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2018-06-06 23:02+0000\n"
+"Last-Translator: Дмитрий <bardimnik@rambler.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,61 +20,61 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "AFTER:"
-msgstr ""
+msgstr "ПОСЛЕ:"
 
 msgid ""
 "Add noatime and nodiratime to root options.  See before and after example "
 "lines:"
-msgstr ""
+msgstr "Добавьте noatime и nodiratime в опции root. Смотрите примерные строки:"
 
 msgid "BEFORE:"
-msgstr ""
+msgstr "ДО:"
 
 msgid ""
 "Comment out the swap partition.  See before and after example lines (only "
 "need to add a # to beginning of the line):"
-msgstr ""
+msgstr "Закомментируйте раздел подкачки. См. Строки до и после примера (нужно только добавить # в начало строки):"
 
 msgid "Ctrl-o to save"
-msgstr ""
+msgstr "Ctrl-o для сохранения"
 
 msgid "Ctrl-x to exit"
-msgstr ""
+msgstr "Ctrl-x для выхода"
 
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 msgid "Enable the plugin"
-msgstr ""
+msgstr "Включить плагин"
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
-msgstr ""
+msgstr "Выполните следующую команду: <b>nano /etc/fstab</b>"
 
 msgid "Flash Memory"
-msgstr ""
+msgstr "Flash Memory"
 
 msgid ""
 "Fstab (/etc/fstab) needs to be changed manually. Following these steps to "
 "change:"
-msgstr ""
+msgstr "Fstab (/etc/fstab) необходимо изменить вручную. Выполните следующие шаги для изменения:"
 
 msgid "Login as root locally or via ssh"
-msgstr ""
+msgstr "Войдите в систему как пользователь root или через ssh."
 
 msgid "Notes"
-msgstr ""
+msgstr "Заметки"
 
 msgid "Reboot"
-msgstr ""
+msgstr "Перезагрузить"
 
 msgid "Root"
-msgstr ""
+msgstr "Root"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Settings active immediately."
-msgstr ""
+msgstr "Настройки активны немедленно."
 
 msgid "Write Kbytes"
-msgstr ""
+msgstr "Записано Кбайт"

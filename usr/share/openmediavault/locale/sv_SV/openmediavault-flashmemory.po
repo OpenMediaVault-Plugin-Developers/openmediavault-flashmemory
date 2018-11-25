@@ -3,77 +3,77 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Hyeonkyu Chu <hyeonkyu@gmail.com>, 2015
+# Jonatan Nyberg, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-08 22:34-0500\n"
-"PO-Revision-Date: 2017-09-23 20:55+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/ko_KR/)\n"
+"PO-Revision-Date: 2018-11-24 07:33+0000\n"
+"Last-Translator: Jonatan Nyberg\n"
+"Language-Team: Swedish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko_KR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "AFTER:"
-msgstr "이후:"
+msgstr "EFTER:"
 
 msgid ""
 "Add noatime and nodiratime to root options.  See before and after example "
 "lines:"
-msgstr "noatime, nodiratime 을 root options 에 추가합니다. 이전 및 이후 관련 예제 참조:"
+msgstr "Lägg noatime och nodiratime till root-alternativ. Se före och efter exempel rader:"
 
 msgid "BEFORE:"
-msgstr "이전:"
+msgstr "FÖRE:"
 
 msgid ""
 "Comment out the swap partition.  See before and after example lines (only "
 "need to add a # to beginning of the line):"
-msgstr "스왑 파티션을 주석 처리합니다. 이전 및 이후 관련 예제 참조 (해당 줄의 첫 칸에 # 추가)"
+msgstr "Kommentera ut swap-artitionen. Se före och efter exempel rader (behöver bara lägga till en # till början av raden):"
 
 msgid "Ctrl-o to save"
-msgstr "Ctrl-o 로 저장"
+msgstr "Ctrl-o för att spara"
 
 msgid "Ctrl-x to exit"
-msgstr "Ctrl-x 로 종료"
+msgstr "Ctrl-x för att avsluta"
 
 msgid "Enable"
-msgstr "활성화"
+msgstr "Aktivera"
 
 msgid "Enable the plugin"
-msgstr "플러그인 활성화"
+msgstr "Aktivera insticksmodulen"
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
-msgstr "다음 명령을 실행합니다: <b>nano /etc/fstab</b>"
+msgstr "Utför följande kommando: <b>nano /etc/fstab</b>"
 
 msgid "Flash Memory"
-msgstr "Flash Memory"
+msgstr "Flashminne"
 
 msgid ""
 "Fstab (/etc/fstab) needs to be changed manually. Following these steps to "
 "change:"
-msgstr "fstab ( /etc/fstab )은 수동으로 변경해야 합니다. 다음 단계를 통해 변경:"
+msgstr "Fstab (/etc/fstab) måste ändras manuellt. Följ dessa steg för att ändra:"
 
 msgid "Login as root locally or via ssh"
-msgstr "로컬 또는 SSH를 통해 root 로 로그인"
+msgstr "Logga in som root lokalt eller via ssh"
 
 msgid "Notes"
-msgstr "설명"
+msgstr "Noteringar"
 
 msgid "Reboot"
-msgstr "시스템 재시작"
+msgstr "Starta om"
 
 msgid "Root"
 msgstr "Root"
 
 msgid "Settings"
-msgstr "설정"
+msgstr "Inställningar"
 
 msgid "Settings active immediately."
-msgstr ""
+msgstr "Inställningarna är aktiva omedelbart."
 
 msgid "Write Kbytes"
-msgstr "쓰기 KiB"
+msgstr "Skriv Kbytes"

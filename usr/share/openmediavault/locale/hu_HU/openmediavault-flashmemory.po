@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-08 22:34-0500\n"
-"PO-Revision-Date: 2016-05-09 03:34+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"PO-Revision-Date: 2017-09-22 01:57+0000\n"
+"Last-Translator: Gyuris Gellért <bubu@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,61 +19,61 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "AFTER:"
-msgstr ""
+msgstr "UTÁNA"
 
 msgid ""
 "Add noatime and nodiratime to root options.  See before and after example "
 "lines:"
-msgstr ""
+msgstr "Adjuk hozzá a „noatime” vagy a „nodiratime” paramétereket a root opciókhoz. Figyeljük meg az előtte és az utána példasorokat:"
 
 msgid "BEFORE:"
-msgstr ""
+msgstr "ELŐTTE"
 
 msgid ""
 "Comment out the swap partition.  See before and after example lines (only "
 "need to add a # to beginning of the line):"
-msgstr ""
+msgstr "Kommenteljük ki a cserepartíciót. Figyeljük meg az előtte és az utána példasorokat, hogy csak egy # karaktert kell hozzáadni a sor elejére:"
 
 msgid "Ctrl-o to save"
-msgstr ""
+msgstr "Mentés: Ctrl-o"
 
 msgid "Ctrl-x to exit"
-msgstr ""
+msgstr "Kilépés: Ctrl-x"
 
 msgid "Enable"
-msgstr ""
+msgstr "Engedélyezés"
 
 msgid "Enable the plugin"
-msgstr ""
+msgstr "Beépülő engedélyezése"
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
-msgstr ""
+msgstr "Futtassuk a parancsot: <b>nano /etc/fstab</b>"
 
 msgid "Flash Memory"
-msgstr ""
+msgstr "Flash memória"
 
 msgid ""
 "Fstab (/etc/fstab) needs to be changed manually. Following these steps to "
 "change:"
-msgstr ""
+msgstr "Az fstabot (/etc/fstab) kézzel kell módosítani. Kövessük az alábbi lépéseket: "
 
 msgid "Login as root locally or via ssh"
-msgstr ""
+msgstr "Lépjünk be root felhasználóval helyileg vagy SSH-val"
 
 msgid "Notes"
-msgstr ""
+msgstr "Megjegyzések"
 
 msgid "Reboot"
-msgstr ""
+msgstr "Újraindítás"
 
 msgid "Root"
-msgstr ""
+msgstr "Gyökér"
 
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 msgid "Settings active immediately."
-msgstr ""
+msgstr "A beállítások azonnal aktiválódnak."
 
 msgid "Write Kbytes"
-msgstr ""
+msgstr "Írható kB"
