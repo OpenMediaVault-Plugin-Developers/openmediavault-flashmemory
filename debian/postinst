@@ -7,14 +7,16 @@ set -e
 
 case "$1" in
     configure)
-        omv-mkconf flashmemory
-        folder2ram -enablesystemd
-        folder2ram -mountall
-
-        # Activate package triggers. These triggers are only set during the
-        # package installation.
+        # Activate package triggers
         dpkg-trigger update-fixperms
         dpkg-trigger update-locale
+
+        # create config file
+        omv-salt deploy run flashmemory
+
+        # enable and mount
+        folder2ram -enablesystemd
+        folder2ram -mountall
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

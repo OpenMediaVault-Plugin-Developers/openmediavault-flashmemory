@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015-2017 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2019 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,46 +21,46 @@
 // require("js/omv/data/Model.js")
 
 Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
-    extend : "OMV.workspace.form.Panel",
-    uses   : [
+    extend: "OMV.workspace.form.Panel",
+    uses: [
         "OMV.data.Model",
         "OMV.data.Store"
     ],
 
-    rpcService   : "Flashmemory",
-    rpcGetMethod : "getSettings",
+    rpcService: "Flashmemory",
+    rpcGetMethod: "getSettings",
 
-    hideOkButton : true,
+    hideOkButton: true,
 
-    getFormItems : function() {
+    getFormItems: function() {
         return [{
-            xtype    : "fieldset",
-            title    : "Details",
-            defaults : {
-                labelSeparator : ""
+            xtype: "fieldset",
+            title: "Details",
+            defaults: {
+                labelSeparator: ""
             },
-            items : [{
-                xtype       : "textfield",
-                name        : "root",
-                fieldLabel  : _("Root"),
-                submitValue : false,
-                readOnly    : true
+            items: [{
+                xtype: "textfield",
+                name: "root",
+                fieldLabel: _("Root"),
+                submitValue: false,
+                readOnly: true
             },{
-                xtype       : "textfield",
-                name        : "written",
-                fieldLabel  : _("Write Kbytes"),
-                submitValue : false,
-                readOnly    : true
+                xtype: "textfield",
+                name: "written",
+                fieldLabel: _("Write Kbytes"),
+                submitValue: false,
+                readOnly: true
             }]
         },{
-            xtype         : "fieldset",
-            title         : _("Notes (optional)"),
-            fieldDefaults : {
-                labelSeparator : ""
+            xtype: "fieldset",
+            title: _("Notes (optional)"),
+            fieldDefaults: {
+                labelSeparator: ""
             },
-            items         : [{
-                border : false,
-                html   : "<p>" + _("Fstab (/etc/fstab) needs to be changed manually. Following these steps to change:") +
+            items: [{
+                border: false,
+                html: "<p>" + _("Fstab (/etc/fstab) needs to be changed manually. Following these steps to change:") +
                          "<ol>" +
                            "<li>" + _("Login as root locally or via ssh") + "</li>" +
                            "<li>" + _("Execute the following command:  <b>nano /etc/fstab</b>") + "</li>" +
@@ -89,9 +89,9 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
 });
 
 OMV.WorkspaceManager.registerPanel({
-    id        : "settings",
-    path      : "/storage/flashmemory",
-    text      : _("Settings"),
-    position  : 10,
-    className : "OMV.module.admin.storage.flashmemory.Settings"
+    id: "settings",
+    path: "/storage/flashmemory",
+    text: _("Settings"),
+    position: 10,
+    className: "OMV.module.admin.storage.flashmemory.Settings"
 });
