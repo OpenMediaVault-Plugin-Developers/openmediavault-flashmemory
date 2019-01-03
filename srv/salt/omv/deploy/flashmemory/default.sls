@@ -43,7 +43,3 @@ configure_samba_dir:
 remove_cron_apt_file:
   file.absent:
     - name: "/etc/cron-apt/action.d/3-download"
-
-clean_apt_cache:
-  cmd.run:
-    - name: /usr/bin/apt-get clean
