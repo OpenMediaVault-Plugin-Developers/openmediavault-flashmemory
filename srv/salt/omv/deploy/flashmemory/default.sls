@@ -21,8 +21,6 @@ configure_flashmemory:
     - source:
       - salt://{{ slspath }}/files/etc-folder2ram-folder2ram_conf.j2
     - template: jinja
-    - context:
-        config: {{ config | json }}
     - user: root
     - group: root
     - mode: 644
