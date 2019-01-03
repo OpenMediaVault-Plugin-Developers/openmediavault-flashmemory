@@ -1,3 +1,9 @@
+openmediavault-flashmemory (5.0) UNRELEASED; urgency=medium
+
+  * Adapt to OMV 5 (Usul)
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 02 Jan 2019 18:18:32 -0600
+
 openmediavault-flashmemory (4.2.1) stable; urgency=low
 
   * Update for folder2ram 0.3.1

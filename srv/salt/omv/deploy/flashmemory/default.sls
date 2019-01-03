@@ -30,14 +30,17 @@ configure_flashmemory:
 configure_rrd_dir:
   file.directory:
     - name: "/var/lib/openmediavault/rrd"
+    - makedirs: True
 
 configure_netatalk_dir:
   file.directory:
     - name: "/var/lib/netatalk/CNID"
+    - makedirs: True
 
 configure_samba_dir:
   file.directory:
     - name: "/var/cache/samba"
+    - makedirs: True
 
 remove_cron_apt_file:
   file.absent:
