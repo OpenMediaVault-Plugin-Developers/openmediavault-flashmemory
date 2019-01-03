@@ -7,7 +7,10 @@ set -e
 
 case "$1" in
     purge)
-        #reverting apt disk cache if the file was written at all
+        # remove config file
+        rm /etc/folder2ram/folder2ram.conf
+
+        # reverting apt disk cache if the file was written at all
         if [ -f /etc/apt/apt.conf.d/02nocache ]; then
             rm /etc/apt/apt.conf.d/02nocache;
             #reverting cron-apt package download
