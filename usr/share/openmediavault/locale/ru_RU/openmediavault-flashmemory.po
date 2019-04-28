@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
 # Дмитрий <bardimnik@rambler.ru>, 2018
@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-08 22:34-0500\n"
-"PO-Revision-Date: 2018-06-06 23:02+0000\n"
-"Last-Translator: Дмитрий <bardimnik@rambler.ru>\n"
+"POT-Creation-Date: 2019-04-28 10:01-0500\n"
+"PO-Revision-Date: 2019-01-03 00:02+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,12 +41,6 @@ msgstr "Ctrl-o для сохранения"
 msgid "Ctrl-x to exit"
 msgstr "Ctrl-x для выхода"
 
-msgid "Enable"
-msgstr "Включить"
-
-msgid "Enable the plugin"
-msgstr "Включить плагин"
-
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr "Выполните следующую команду: <b>nano /etc/fstab</b>"
 
@@ -61,8 +55,8 @@ msgstr "Fstab (/etc/fstab) необходимо изменить вручную.
 msgid "Login as root locally or via ssh"
 msgstr "Войдите в систему как пользователь root или через ssh."
 
-msgid "Notes"
-msgstr "Заметки"
+msgid "Notes (optional)"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Перезагрузить"
@@ -73,8 +67,8 @@ msgstr "Root"
 msgid "Settings"
 msgstr "Настройки"
 
-msgid "Settings active immediately."
-msgstr "Настройки активны немедленно."
-
 msgid "Write Kbytes"
 msgstr "Записано Кбайт"
+
+msgid "n/a"
+msgstr ""

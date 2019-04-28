@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
 # Jonatan Nyberg, 2018
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-08 22:34-0500\n"
-"PO-Revision-Date: 2018-11-24 07:33+0000\n"
-"Last-Translator: Jonatan Nyberg\n"
+"POT-Creation-Date: 2019-04-28 10:01-0500\n"
+"PO-Revision-Date: 2019-01-03 00:02+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,12 +40,6 @@ msgstr "Ctrl-o för att spara"
 msgid "Ctrl-x to exit"
 msgstr "Ctrl-x för att avsluta"
 
-msgid "Enable"
-msgstr "Aktivera"
-
-msgid "Enable the plugin"
-msgstr "Aktivera insticksmodulen"
-
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr "Utför följande kommando: <b>nano /etc/fstab</b>"
 
@@ -60,8 +54,8 @@ msgstr "Fstab (/etc/fstab) måste ändras manuellt. Följ dessa steg för att ä
 msgid "Login as root locally or via ssh"
 msgstr "Logga in som root lokalt eller via ssh"
 
-msgid "Notes"
-msgstr "Noteringar"
+msgid "Notes (optional)"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Starta om"
@@ -72,8 +66,8 @@ msgstr "Root"
 msgid "Settings"
 msgstr "Inställningar"
 
-msgid "Settings active immediately."
-msgstr "Inställningarna är aktiva omedelbart."
-
 msgid "Write Kbytes"
 msgstr "Skriv Kbytes"
+
+msgid "n/a"
+msgstr ""

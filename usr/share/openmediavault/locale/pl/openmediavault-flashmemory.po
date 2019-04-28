@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2015
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-08 22:34-0500\n"
-"PO-Revision-Date: 2017-09-22 01:57+0000\n"
+"POT-Creation-Date: 2019-04-28 10:01-0500\n"
+"PO-Revision-Date: 2019-01-03 00:02+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -40,12 +40,6 @@ msgstr "Ctrl-o aby zapisać"
 msgid "Ctrl-x to exit"
 msgstr "Ctrl-x aby wyjść"
 
-msgid "Enable"
-msgstr "Włącz"
-
-msgid "Enable the plugin"
-msgstr "Włącz plugin"
-
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr ""
 
@@ -60,7 +54,7 @@ msgstr ""
 msgid "Login as root locally or via ssh"
 msgstr ""
 
-msgid "Notes"
+msgid "Notes (optional)"
 msgstr ""
 
 msgid "Reboot"
@@ -72,8 +66,8 @@ msgstr "Root"
 msgid "Settings"
 msgstr "Ustawienia"
 
-msgid "Settings active immediately."
+msgid "Write Kbytes"
 msgstr ""
 
-msgid "Write Kbytes"
+msgid "n/a"
 msgstr ""

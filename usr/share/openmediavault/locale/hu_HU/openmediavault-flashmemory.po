@@ -1,15 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
+# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2019
 # Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-08 22:34-0500\n"
-"PO-Revision-Date: 2017-09-22 01:57+0000\n"
+"POT-Creation-Date: 2019-04-28 10:01-0500\n"
+"PO-Revision-Date: 2019-01-27 21:15+0000\n"
 "Last-Translator: Gyuris Gellért <bubu@ujevangelizacio.hu>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -40,12 +41,6 @@ msgstr "Mentés: Ctrl-o"
 msgid "Ctrl-x to exit"
 msgstr "Kilépés: Ctrl-x"
 
-msgid "Enable"
-msgstr "Engedélyezés"
-
-msgid "Enable the plugin"
-msgstr "Beépülő engedélyezése"
-
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr "Futtassuk a parancsot: <b>nano /etc/fstab</b>"
 
@@ -60,8 +55,8 @@ msgstr "Az fstabot (/etc/fstab) kézzel kell módosítani. Kövessük az alábbi
 msgid "Login as root locally or via ssh"
 msgstr "Lépjünk be root felhasználóval helyileg vagy SSH-val"
 
-msgid "Notes"
-msgstr "Megjegyzések"
+msgid "Notes (optional)"
+msgstr "Jegyzetek (válaszható)"
 
 msgid "Reboot"
 msgstr "Újraindítás"
@@ -72,8 +67,8 @@ msgstr "Gyökér"
 msgid "Settings"
 msgstr "Beállítások"
 
-msgid "Settings active immediately."
-msgstr "A beállítások azonnal aktiválódnak."
-
 msgid "Write Kbytes"
 msgstr "Írható kB"
+
+msgid "n/a"
+msgstr "nem elérhető"

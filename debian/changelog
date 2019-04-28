@@ -1,8 +1,8 @@
-openmediavault-flashmemory (5.0) UNRELEASED; urgency=medium
+openmediavault-flashmemory (5.0) stable; urgency=low
 
   * Adapt to OMV 5 (Usul)
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 02 Jan 2019 18:18:32 -0600
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 28 Apr 2019 09:44:26 -0500
 
 openmediavault-flashmemory (4.2.1) stable; urgency=low
 

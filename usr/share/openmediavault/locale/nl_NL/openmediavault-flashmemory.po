@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
 # okpail <okpail@gmail.com>, 2015-2016
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-08 22:34-0500\n"
-"PO-Revision-Date: 2017-09-22 01:57+0000\n"
-"Last-Translator: okpail <okpail@gmail.com>\n"
+"POT-Creation-Date: 2019-04-28 10:01-0500\n"
+"PO-Revision-Date: 2019-01-03 00:02+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,12 +40,6 @@ msgstr "Ctrl-o om op te slaan"
 msgid "Ctrl-x to exit"
 msgstr "Ctrl-x om te verlaten"
 
-msgid "Enable"
-msgstr "Inschakelen"
-
-msgid "Enable the plugin"
-msgstr "Inschakelen van de plugin"
-
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr "Voer de volgende commando uit: <b>nano /etc/fstab</b>"
 
@@ -60,8 +54,8 @@ msgstr "Fstab (/etc/fstab) dient met de hand gewijzigd te worden . Volg de volge
 msgid "Login as root locally or via ssh"
 msgstr "Login als root lokaal of via ssh"
 
-msgid "Notes"
-msgstr "Notities"
+msgid "Notes (optional)"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Reboot"
@@ -72,8 +66,8 @@ msgstr "Root"
 msgid "Settings"
 msgstr "Instellingen"
 
-msgid "Settings active immediately."
-msgstr "De instellingen zijn onmiddelijk actief"
-
 msgid "Write Kbytes"
 msgstr "Schrijf Kbutes"
+
+msgid "n/a"
+msgstr ""
