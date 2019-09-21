@@ -15,6 +15,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+configure_rrd_dir:
+  file.directory:
+    - name: "/var/lib/openmediavault/rrd"
+    - makedirs: True
+
+configure_samba_dir:
+  file.directory:
+    - name: "/var/cache/samba"
+    - makedirs: True
+
 configure_flashmemory:
   file.managed:
     - name: "/etc/folder2ram/folder2ram.conf"
@@ -24,21 +34,6 @@ configure_flashmemory:
     - user: root
     - group: root
     - mode: 644
-
-configure_rrd_dir:
-  file.directory:
-    - name: "/var/lib/openmediavault/rrd"
-    - makedirs: True
-
-configure_netatalk_dir:
-  file.directory:
-    - name: "/var/lib/netatalk/CNID"
-    - makedirs: True
-
-configure_samba_dir:
-  file.directory:
-    - name: "/var/cache/samba"
-    - makedirs: True
 
 remove_cron_apt_file:
   file.absent:

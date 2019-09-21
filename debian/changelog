@@ -1,3 +1,9 @@
+openmediavault-flashmemory (5.0.1) stable; urgency=low
+
+  * Improve salt config
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 21 Sep 2019 09:24:29 -0500
+
 openmediavault-flashmemory (5.0) stable; urgency=low
 
   * Adapt to OMV 5 (Usul)
