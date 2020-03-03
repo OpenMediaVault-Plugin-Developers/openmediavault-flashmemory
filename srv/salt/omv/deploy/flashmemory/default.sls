@@ -29,7 +29,7 @@ configure_flashmemory:
   file.managed:
     - name: "/etc/folder2ram/folder2ram.conf"
     - source:
-      - salt://{{ slspath }}/files/etc-folder2ram-folder2ram_conf.j2
+      - salt://{{ tpldir }}/files/etc-folder2ram-folder2ram_conf.j2
     - template: jinja
     - user: root
     - group: root
