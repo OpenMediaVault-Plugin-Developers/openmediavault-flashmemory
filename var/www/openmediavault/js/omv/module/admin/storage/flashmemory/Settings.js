@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015-2019 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2020 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -80,6 +80,17 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                              "</dl>" +
                           "<li>" + _("Ctrl-o to save") + "</li>" +
                           "<li>" + _("Ctrl-x to exit") + "</li>" +
+                          "<li>" + _("On systems using GPT, swap will still be auto-detected.  The swap partition should be turned off and wiped.") + "</li>" +
+                             "<dl>" +
+                               "<dt>" + _("Find the swap partition with:") + "</dt>" +
+                               "<dd>" + "<b>blkid | grep swap</b>" + "</dd>" +
+                               "<dt>" + _("Example output where /dev/sda2 is the swap partition:") + "</dt>" +
+                               "<dd>" + '/dev/sda2: UUID="01c2d1ab-354b-4e2b-8d7c-ca35793f5fe7" TYPE="swap" PARTUUID="4f64854c-02"' + "</dd>" +
+                               "<dt>" + _("Disable the swap partition with swapoff:") + "</dt>" +
+                               "<dd>" + "<b>swapoff /dev/sda2</b>" + "</dd>" +
+                               "<dt>" + _("Wipe the swap partition with wipefs:") + "</dt>" +
+                               "<dd>" + "<b>wipefs -a /dev/sda2</b>" + "</dd>" +
+                             "</dl>" +
                           "<li>" + _("Reboot") + "</li>" +
                          "</ol>" +
                          "</p>"
