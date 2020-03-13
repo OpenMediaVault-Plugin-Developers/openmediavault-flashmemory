@@ -1,3 +1,9 @@
+openmediavault-flashmemory (5.0.6) stable; urgency=low
+
+  * Improve config file generation
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 13 Mar 2020 10:16:38 -0500
+
 openmediavault-flashmemory (5.0.5) stable; urgency=low
 
   * Improve install
