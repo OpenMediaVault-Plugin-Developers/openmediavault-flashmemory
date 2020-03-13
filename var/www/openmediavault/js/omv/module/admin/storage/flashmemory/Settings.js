@@ -78,8 +78,17 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                                "<dt>" + _("AFTER:") + "</dt>" +
                                "<dd>" + "#UUID=a3c989d8-e12b-41d3-b021-098155d6b21b  none  swap  sw  0  0" + "</dd>" +
                              "</dl>" +
+                             "</li>" +
                           "<li>" + _("Ctrl-o to save") + "</li>" +
                           "<li>" + _("Ctrl-x to exit") + "</li>" +
+                          "<li>" + _("If you disable swap, initramfs resume should fixed to avoid mdadm messages.") + "</li>" +
+                             "<dl>" +
+                               "<dt>" + _("Remove the resume file:") + "</dt>" +
+                               "<dd>" + "<b>rm /etc/initramfs-tools/conf.d/resume</b>" + "</dd>" +
+                               "<dt>" + _("Update initramfs:") + "</dt>" +
+                               "<dd>" + "<b>update-initramfs -u</b>" + "</dd>" +
+                             "</dl>" +
+                             "</li>" +
                           "<li>" + _("On systems using GPT, swap will still be auto-detected.  The swap partition should be turned off and wiped.") + "</li>" +
                              "<dl>" +
                                "<dt>" + _("Find the swap partition with:") + "</dt>" +
@@ -91,6 +100,7 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                                "<dt>" + _("Wipe the swap partition with wipefs:") + "</dt>" +
                                "<dd>" + "<b>wipefs -a /dev/sda2</b>" + "</dd>" +
                              "</dl>" +
+                             "</li>" +
                           "<li>" + _("Reboot") + "</li>" +
                          "</ol>" +
                          "</p>"

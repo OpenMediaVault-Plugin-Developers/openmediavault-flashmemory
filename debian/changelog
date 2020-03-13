@@ -1,3 +1,9 @@
+openmediavault-flashmemory (5.0.3) stable; urgency=low
+
+  * Improve instructions
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 13 Mar 2020 07:14:44 -0500
+
 openmediavault-flashmemory (5.0.2) stable; urgency=low
 
   * Replace 'slspath' with 'tpldir' for saltstack 3000
