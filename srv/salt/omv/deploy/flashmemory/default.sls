@@ -25,12 +25,26 @@ configure_samba_dir:
     - name: "/var/cache/samba"
     - makedirs: True
 
+configure_folder2ram_dir:
+  file.directory:
+    - name: "/etc/folder2ram"
+    - makedirs: True
+
 configure_flashmemory:
   file.managed:
     - name: "/etc/folder2ram/folder2ram.conf"
-    - source:
-      - salt://{{ tpldir }}/files/etc-folder2ram-folder2ram_conf.j2
-    - template: jinja
+    - contents: |
+        {{ pillar['headers']['auto_generated'] }}
+        {{ pillar['headers']['warning'] }}
+        #<type>		<mount point>		<options>
+        tmpfs		/var/log
+        tmpfs		/var/tmp
+        tmpfs		/var/lib/openmediavault/rrd
+        tmpfs		/var/spool
+        tmpfs		/var/lib/rrdcached/
+        tmpfs		/var/lib/monit
+        tmpfs		/var/lib/php		#keep_folder_structure   folder2ram does not have an equivalent yet
+        tmpfs		/var/cache/samba
     - user: root
     - group: root
     - mode: 644
