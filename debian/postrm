@@ -8,7 +8,9 @@ set -e
 case "$1" in
     purge)
         # remove config file
-        rm /etc/folder2ram/folder2ram.conf
+        if [ -f /etc/folder2ram/folder2ram.conf ]; then
+          rm /etc/folder2ram/folder2ram.conf
+        fi
 
         # reverting apt disk cache if the file was written at all
         if [ -f /etc/apt/apt.conf.d/02nocache ]; then

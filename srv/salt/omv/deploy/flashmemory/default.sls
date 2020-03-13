@@ -1,6 +1,6 @@
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2019 Volker Theile
+# @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+# @copyright Copyright (c) 2019-2020 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -38,3 +38,11 @@ configure_flashmemory:
 remove_cron_apt_file:
   file.absent:
     - name: "/etc/cron-apt/action.d/3-download"
+
+folder2ram_enable_systemd:
+  cmd.run:
+    - name: "/usr/sbin/folder2ram -enablesystemd"
+
+folder2ram_mountall:
+  cmd.run:
+    - name: "/usr/sbin/folder2ram -mountall"
