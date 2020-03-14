@@ -43,7 +43,6 @@ configure_flashmemory:
         tmpfs		/var/spool
         tmpfs		/var/lib/rrdcached/
         tmpfs		/var/lib/monit
-        tmpfs		/var/lib/php		#keep_folder_structure   folder2ram does not have an equivalent yet
         tmpfs		/var/cache/samba
     - user: root
     - group: root
@@ -55,8 +54,8 @@ remove_cron_apt_file:
 
 folder2ram_enable_systemd:
   cmd.run:
-    - name: "/usr/sbin/folder2ram -enablesystemd"
+    - name: "/sbin/folder2ram -enablesystemd"
 
 folder2ram_mountall:
   cmd.run:
-    - name: "/usr/sbin/folder2ram -mountall"
+    - name: "/sbin/folder2ram -mountall"
