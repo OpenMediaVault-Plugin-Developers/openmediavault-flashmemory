@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
+# dsafsadf <heneral@gmail.com>, 2019
 # zubr139, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 10:01-0500\n"
-"PO-Revision-Date: 2019-01-03 00:02+0000\n"
+"POT-Creation-Date: 2020-03-13 07:14-0500\n"
+"PO-Revision-Date: 2020-03-13 12:14+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 msgid "AFTER:"
-msgstr ""
+msgstr "ПІСЛЯ:"
 
 msgid ""
 "Add noatime and nodiratime to root options.  See before and after example "
@@ -27,7 +28,7 @@ msgid ""
 msgstr ""
 
 msgid "BEFORE:"
-msgstr ""
+msgstr "ДО:"
 
 msgid ""
 "Comment out the swap partition.  See before and after example lines (only "
@@ -35,20 +36,33 @@ msgid ""
 msgstr ""
 
 msgid "Ctrl-o to save"
-msgstr ""
+msgstr "Ctrl-o, щоб зберегти"
 
 msgid "Ctrl-x to exit"
+msgstr "Ctrl-x для виходу"
+
+msgid "Disable the swap partition with swapoff:"
+msgstr ""
+
+msgid "Example output where /dev/sda2 is the swap partition:"
 msgstr ""
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr ""
 
-msgid "Flash Memory"
+msgid "Find the swap partition with:"
 msgstr ""
+
+msgid "Flash Memory"
+msgstr "Флеш-пам'ять"
 
 msgid ""
 "Fstab (/etc/fstab) needs to be changed manually. Following these steps to "
 "change:"
+msgstr ""
+
+msgid ""
+"If you disable swap, initramfs resume should fixed to avoid mdadm messages."
 msgstr ""
 
 msgid "Login as root locally or via ssh"
@@ -57,7 +71,15 @@ msgstr ""
 msgid "Notes (optional)"
 msgstr ""
 
+msgid ""
+"On systems using GPT, swap will still be auto-detected.  The swap partition "
+"should be turned off and wiped."
+msgstr ""
+
 msgid "Reboot"
+msgstr ""
+
+msgid "Remove the resume file:"
 msgstr ""
 
 msgid "Root"
@@ -65,6 +87,12 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Налаштування"
+
+msgid "Update initramfs:"
+msgstr ""
+
+msgid "Wipe the swap partition with wipefs:"
+msgstr ""
 
 msgid "Write Kbytes"
 msgstr ""

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 10:01-0500\n"
-"PO-Revision-Date: 2019-01-03 05:23+0000\n"
-"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"POT-Creation-Date: 2020-03-13 07:14-0500\n"
+"PO-Revision-Date: 2020-03-13 12:14+0000\n"
+"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,8 +40,17 @@ msgstr "Uložte stisknutím Ctrl+0"
 msgid "Ctrl-x to exit"
 msgstr "Ukončete stisknutím Ctrl+X"
 
+msgid "Disable the swap partition with swapoff:"
+msgstr ""
+
+msgid "Example output where /dev/sda2 is the swap partition:"
+msgstr ""
+
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr "Spusťte následující příkaz:  <b>nano /etc/fstab</b>"
+
+msgid "Find the swap partition with:"
+msgstr ""
 
 msgid "Flash Memory"
 msgstr "Optimalizace instalace na flash úložiště"
@@ -51,20 +60,38 @@ msgid ""
 "change:"
 msgstr "Nastavení připojování souborových systémů (/etc/fstab) bude třeba upravit ručně. Postupujte takto:"
 
+msgid ""
+"If you disable swap, initramfs resume should fixed to avoid mdadm messages."
+msgstr ""
+
 msgid "Login as root locally or via ssh"
 msgstr "Přihlaste se jako správce systému (root) – na místní konzoli nebo přes ssh"
 
 msgid "Notes (optional)"
 msgstr "Poznámky (volitelné)"
 
+msgid ""
+"On systems using GPT, swap will still be auto-detected.  The swap partition "
+"should be turned off and wiped."
+msgstr ""
+
 msgid "Reboot"
 msgstr "Restartovat"
+
+msgid "Remove the resume file:"
+msgstr ""
 
 msgid "Root"
 msgstr "Kořenová složka:"
 
 msgid "Settings"
 msgstr "Nastavení"
+
+msgid "Update initramfs:"
+msgstr ""
+
+msgid "Wipe the swap partition with wipefs:"
+msgstr ""
 
 msgid "Write Kbytes"
 msgstr "Zapsáno kilobajtů:"

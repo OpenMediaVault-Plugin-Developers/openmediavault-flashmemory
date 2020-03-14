@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-28 10:01-0500\n"
-"PO-Revision-Date: 2019-01-03 00:02+0000\n"
+"POT-Creation-Date: 2020-03-13 07:14-0500\n"
+"PO-Revision-Date: 2020-03-13 12:14+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -40,8 +40,17 @@ msgstr "Ctrl-o per salvare"
 msgid "Ctrl-x to exit"
 msgstr "Ctrl-x per uscire"
 
+msgid "Disable the swap partition with swapoff:"
+msgstr ""
+
+msgid "Example output where /dev/sda2 is the swap partition:"
+msgstr ""
+
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr "Esegui il seguente comando: <b>nano /etc/fstab</b>"
+
+msgid "Find the swap partition with:"
+msgstr ""
 
 msgid "Flash Memory"
 msgstr "Memoria Flash"
@@ -51,20 +60,38 @@ msgid ""
 "change:"
 msgstr "Fstab (/etc/fstab) ha bisogno di essere cambiato manualmente. Segui queste istruzioni per cambiarlo:"
 
+msgid ""
+"If you disable swap, initramfs resume should fixed to avoid mdadm messages."
+msgstr ""
+
 msgid "Login as root locally or via ssh"
 msgstr "Login locale come root o via ssh"
 
 msgid "Notes (optional)"
 msgstr ""
 
+msgid ""
+"On systems using GPT, swap will still be auto-detected.  The swap partition "
+"should be turned off and wiped."
+msgstr ""
+
 msgid "Reboot"
 msgstr "Riavvia"
+
+msgid "Remove the resume file:"
+msgstr ""
 
 msgid "Root"
 msgstr "Root"
 
 msgid "Settings"
 msgstr "Impostazioni"
+
+msgid "Update initramfs:"
+msgstr ""
+
+msgid "Wipe the swap partition with wipefs:"
+msgstr ""
 
 msgid "Write Kbytes"
 msgstr "Kbytes Scritti"
