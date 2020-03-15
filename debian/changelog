@@ -1,3 +1,9 @@
+openmediavault-flashmemory (4.2.2) stable; urgency=low
+
+  * Remove /var/lib/php
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 15 Mar 2020 09:55:49 -0500
+
 openmediavault-flashmemory (4.2.1) stable; urgency=low
 
   * Update for folder2ram 0.3.1
