@@ -35,32 +35,35 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
     getFormItems: function() {
         return [{
             xtype: "fieldset",
-            title: "Details",
+            title: "Information",
             defaults: {
                 labelSeparator: ""
             },
             items: [{
                 xtype: "textfield",
                 name: "root",
-                fieldLabel: _("Root"),
+                fieldLabel: _("OMV Root"),
                 submitValue: false,
                 readOnly: true
             },{
                 xtype: "textfield",
                 name: "written",
-                fieldLabel: _("Write Kbytes"),
+                fieldLabel: _("Written kB since boot"),
                 submitValue: false,
                 readOnly: true
             }]
         },{
             xtype: "fieldset",
-            title: _("Notes (optional)"),
+            title: _("Notes"),
             fieldDefaults: {
                 labelSeparator: ""
             },
             items: [{
                 border: false,
-                html: "<p>" + _("Fstab (/etc/fstab) needs to be changed manually. Following these steps to change:") +
+                html: "<p>" +
+                         _("<b>The Flash Memory plugin works out of the box and moves most writes to the RAM without any further configuration needed.</b>") +
+                         _("<b>Therefore the following instructions are 100% optional!  However, they allow to decrease the writes slightly more by disabling and removing the swap partition - recommended for advanced users only, and with a decent amount of RAM installed.</b>") +
+                         _("Fstab (/etc/fstab) needs to be changed manually. Follow these steps:") +
                          "<ol>" +
                            "<li>" + _("Login as root locally or via ssh") + "</li>" +
                            "<li>" + _("Execute the following command:  <b>nano /etc/fstab</b>") + "</li>" +
