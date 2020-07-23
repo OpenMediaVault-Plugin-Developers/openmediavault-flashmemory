@@ -47,15 +47,22 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
             },{
                 xtype: "textfield",
                 name: "root",
-                fieldLabel: _("System location"),
+                fieldLabel: _("System drive"),
                 submitValue: false,
-                readOnly: true
+                readOnly: true,
+                plugins: [{
+                    ptype: "fieldinfo",
+                    text: _("Location of the OMV root file system")
             },{
                 xtype: "textfield",
                 name: "written",
-                fieldLabel: _("Writes since last boot [kB]"),
+                fieldLabel: _("Writes"),
                 submitValue: false,
-                readOnly: true
+                readOnly: true,
+                plugins: [{
+                    ptype: "fieldinfo",
+                    text: _("Amount of data (in kB), that got written to the system drive since last boot")
+                }]
             }]
         },{
             xtype: "fieldset",
@@ -67,7 +74,7 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                 border: false,
                 html: "<p>" +
                          _("<b>The following instructions are for advanced users only!  Make sure to have sufficient RAM installed for your use case.</b>") +
-                         _("<b>Be aware, that disabling and removing the swap partition only slightly decreases writes, but can lead to issues and system freezes</b>.") +
+                         _("<b>Be aware, that disabling and removing the swap partition only slightly decreases writes, but can lead to issues, warnings and system freezes</b>.") +
                          _("Fstab (/etc/fstab) needs to be changed manually. Follow these steps:") +
                          "<ol>" +
                            "<li>" + _("Login as root locally or via ssh") + "</li>" +
