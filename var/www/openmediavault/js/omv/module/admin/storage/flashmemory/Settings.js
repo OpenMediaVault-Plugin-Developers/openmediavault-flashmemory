@@ -35,34 +35,39 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
     getFormItems: function() {
         return [{
             xtype: "fieldset",
-            title: "Information",
-            defaults: {
-                labelSeparator: ""
-            },
-            items: [{
-                xtype: "textfield",
-                name: "root",
-                fieldLabel: _("OMV Root"),
-                submitValue: false,
-                readOnly: true
-            },{
-                xtype: "textfield",
-                name: "written",
-                fieldLabel: _("Written kB since boot"),
-                submitValue: false,
-                readOnly: true
-            }]
-        },{
-            xtype: "fieldset",
-            title: _("Notes"),
+            title: _("Information"),
             fieldDefaults: {
                 labelSeparator: ""
             },
             items: [{
                 border: false,
                 html: "<p>" +
-                         _("<b>The Flash Memory plugin works out of the box and moves most writes to the RAM without any further configuration needed.</b>") +
-                         _("<b>Therefore the following instructions are 100% optional!  However, they allow to decrease the writes slightly more by disabling and removing the swap partition - recommended for advanced users only, and with a decent amount of RAM installed.</b>") +
+                         _("<b>The Flash Memory plugin is automatically enabled after installation and moves most writes to the RAM without any further configuration.</b>") +
+                      "</p>"
+            },{
+                xtype: "textfield",
+                name: "root",
+                fieldLabel: _("System location"),
+                submitValue: false,
+                readOnly: true
+            },{
+                xtype: "textfield",
+                name: "written",
+                fieldLabel: _("Writes since last boot [kB]"),
+                submitValue: false,
+                readOnly: true
+            }]
+        },{
+            xtype: "fieldset",
+            title: _("Optional settings"),
+            fieldDefaults: {
+                labelSeparator: ""
+            },
+            items: [{
+                border: false,
+                html: "<p>" +
+                         _("<b>The following instructions are for advanced users only!  Make sure to have sufficient RAM installed for your use case.</b>") +
+                         _("<b>Be aware, that disabling and removing the swap partition only slightly decreases writes, but can lead to issues and system freezes</b>.") +
                          _("Fstab (/etc/fstab) needs to be changed manually. Follow these steps:") +
                          "<ol>" +
                            "<li>" + _("Login as root locally or via ssh") + "</li>" +
