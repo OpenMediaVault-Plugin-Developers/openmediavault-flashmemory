@@ -81,7 +81,7 @@ Ext.define("OMV.module.admin.storage.flashmemory.Settings", {
                              "</li>" +
                           "<li>" + _("Ctrl-o to save") + "</li>" +
                           "<li>" + _("Ctrl-x to exit") + "</li>" +
-                          "<li>" + _("If you disable swap, initramfs resume should fixed to avoid mdadm messages.") + "</li>" +
+                          "<li>" + _("If you disable swap, initramfs resume should be fixed to avoid mdadm messages.") + "</li>" +
                              "<dl>" +
                                "<dt>" + _("Remove the resume file:") + "</dt>" +
                                "<dd>" + "<b>rm /etc/initramfs-tools/conf.d/resume</b>" + "</dd>" +
