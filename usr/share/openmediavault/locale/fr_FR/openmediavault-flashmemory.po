@@ -4,14 +4,16 @@
 # 
 # Translators:
 # Christophe Lherieau <skimpax@gmail.com>, 2015
+# Axel Cantenys, 2020
 # Julien ROCH <jroch74@live.fr>, 2017
+# kevin LECLERCQ <nuklearstriker@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 07:14-0500\n"
-"PO-Revision-Date: 2020-03-13 12:14+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"POT-Creation-Date: 2020-07-23 07:16-0500\n"
+"PO-Revision-Date: 2020-09-24 20:37+0000\n"
+"Last-Translator: kevin LECLERCQ <nuklearstriker@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +27,7 @@ msgstr "APRÈS :"
 msgid ""
 "Add noatime and nodiratime to root options.  See before and after example "
 "lines:"
-msgstr "Ajouter noatime et nodiratime aux options de root. Voici un exemple avant/après :"
+msgstr "Ajouter « noatime » et « nodiratime » aux options de root. Voir les exemples avant et après :"
 
 msgid "BEFORE:"
 msgstr "AVANT :"
@@ -33,25 +35,25 @@ msgstr "AVANT :"
 msgid ""
 "Comment out the swap partition.  See before and after example lines (only "
 "need to add a # to beginning of the line):"
-msgstr "Commenter la partition d'échange (swap). Voici les lignes d'exemple avant/après (ajouter seulement un # en début de ligne) :"
+msgstr "Commentez la partition d'échange « swap ». Voir les exemples avant et après (ajouter seulement un # en début de ligne) :"
 
 msgid "Ctrl-o to save"
-msgstr "Ctrl-o pour enregistrer"
+msgstr "Ctrl + o pour enregistrer."
 
 msgid "Ctrl-x to exit"
-msgstr "Ctrl-x pour quitter"
+msgstr "Ctrl + x pour quitter."
 
 msgid "Disable the swap partition with swapoff:"
-msgstr ""
+msgstr "Désactivez la partition de swap avec « swapoff » :"
 
 msgid "Example output where /dev/sda2 is the swap partition:"
-msgstr ""
+msgstr "Exemple de sortie où « /dev/sda2 » est la partition de swap :"
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
-msgstr "Exécuter la commande suivante :  <b>nano /etc/fstab</b>"
+msgstr "Exécutez la commande suivante :  <b>nano /etc/fstab</b>"
 
 msgid "Find the swap partition with:"
-msgstr ""
+msgstr "Trouvez la partition de swap avec :"
 
 msgid "Flash Memory"
 msgstr "Mémoire Flash"
@@ -62,40 +64,41 @@ msgid ""
 msgstr "Fstab (/etc/fstab) doit être modifié manuellement. Suivre ces étapes pour faire la modification :"
 
 msgid ""
-"If you disable swap, initramfs resume should fixed to avoid mdadm messages."
-msgstr ""
+"If you disable swap, initramfs resume should be fixed to avoid mdadm "
+"messages."
+msgstr "Si vous désactivez la swap, la reprise initramfs doit être fixée pour éviter les messages mdadm."
 
 msgid "Login as root locally or via ssh"
-msgstr "Se connecter en tant que root localement ou via ssh"
+msgstr "Se connectez en tant que « root » localement ou via « ssh »."
 
 msgid "Notes (optional)"
-msgstr ""
+msgstr "Notes (optionnels)"
 
 msgid ""
 "On systems using GPT, swap will still be auto-detected.  The swap partition "
 "should be turned off and wiped."
-msgstr ""
+msgstr "Sur les systèmes utilisant « GPT », la partition d'échange sera toujours détectée automatiquement. La partition d'échange doit être désactivée et effacée."
 
 msgid "Reboot"
-msgstr "Redémarrer"
+msgstr "Redémarrez"
 
 msgid "Remove the resume file:"
-msgstr ""
+msgstr "Supprimez le fichier de reprise :"
 
 msgid "Root"
-msgstr "Racine"
+msgstr "Partition Racine :"
 
 msgid "Settings"
 msgstr "Paramètres"
 
 msgid "Update initramfs:"
-msgstr ""
+msgstr "Mettre à jour « initramfs » :"
 
 msgid "Wipe the swap partition with wipefs:"
-msgstr ""
+msgstr "Supprimez la partition d'échange avec « wipefs » :"
 
 msgid "Write Kbytes"
-msgstr "Écrire Koctets"
+msgstr "Kilo-octets écrit :"
 
 msgid "n/a"
-msgstr ""
+msgstr "Non applicable"

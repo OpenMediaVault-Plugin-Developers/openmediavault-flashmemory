@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
-# Andi Chandler <andi@gowling.com>, 2015-2016,2019
+# Andi Chandler <andi@gowling.com>, 2015-2016,2019-2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 07:14-0500\n"
-"PO-Revision-Date: 2020-03-13 12:14+0000\n"
+"POT-Creation-Date: 2020-07-23 07:16-0500\n"
+"PO-Revision-Date: 2020-07-23 12:16+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -41,16 +41,16 @@ msgid "Ctrl-x to exit"
 msgstr "Ctrl-x to exit"
 
 msgid "Disable the swap partition with swapoff:"
-msgstr ""
+msgstr "Disable the swap partition with swapoff:"
 
 msgid "Example output where /dev/sda2 is the swap partition:"
-msgstr ""
+msgstr "Example output where /dev/sda2 is the swap partition:"
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr "Execute the following command:  <b>nano /etc/fstab</b>"
 
 msgid "Find the swap partition with:"
-msgstr ""
+msgstr "Find the swap partition with:"
 
 msgid "Flash Memory"
 msgstr "Flash Memory"
@@ -61,7 +61,8 @@ msgid ""
 msgstr "Fstab (/etc/fstab) needs to be changed manually. Following these steps to change:"
 
 msgid ""
-"If you disable swap, initramfs resume should fixed to avoid mdadm messages."
+"If you disable swap, initramfs resume should be fixed to avoid mdadm "
+"messages."
 msgstr ""
 
 msgid "Login as root locally or via ssh"
@@ -73,13 +74,13 @@ msgstr "Notes (optional)"
 msgid ""
 "On systems using GPT, swap will still be auto-detected.  The swap partition "
 "should be turned off and wiped."
-msgstr ""
+msgstr "On systems using GPT, swap will still be auto-detected.  The swap partition should be turned off and wiped."
 
 msgid "Reboot"
 msgstr "Reboot"
 
 msgid "Remove the resume file:"
-msgstr ""
+msgstr "Remove the resume file:"
 
 msgid "Root"
 msgstr "Root"
@@ -88,10 +89,10 @@ msgid "Settings"
 msgstr "Settings"
 
 msgid "Update initramfs:"
-msgstr ""
+msgstr "Update initramfs:"
 
 msgid "Wipe the swap partition with wipefs:"
-msgstr ""
+msgstr "Wipe the swap partition with wipefs:"
 
 msgid "Write Kbytes"
 msgstr "Write KBytes"

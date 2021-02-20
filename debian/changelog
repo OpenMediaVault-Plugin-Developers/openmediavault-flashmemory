@@ -1,3 +1,9 @@
+openmediavault-flashmemory (5.0.8) stable; urgency=low
+
+  * Stop removing cron-apt file
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sat, 20 Feb 2021 08:48:44 -0600
+
 openmediavault-flashmemory (5.0.7) stable; urgency=low
 
   * Fix folder2ram path and remove /var/lib/php from config file

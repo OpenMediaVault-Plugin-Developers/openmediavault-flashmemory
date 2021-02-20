@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2015-2016,2019
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2015-2016,2019-2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 07:14-0500\n"
-"PO-Revision-Date: 2020-03-13 12:14+0000\n"
-"Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
+"POT-Creation-Date: 2020-07-23 07:16-0500\n"
+"PO-Revision-Date: 2020-08-08 17:33+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,16 +41,16 @@ msgid "Ctrl-x to exit"
 msgstr "Ctrl-x para salir"
 
 msgid "Disable the swap partition with swapoff:"
-msgstr ""
+msgstr "Deshabilitar la partición swap con swapoff:"
 
 msgid "Example output where /dev/sda2 is the swap partition:"
-msgstr ""
+msgstr "Ejemplo donde la partición swap está en /dev/sda2:"
 
 msgid "Execute the following command:  <b>nano /etc/fstab</b>"
 msgstr "Ejecutar el siguiente comando:  <b>nano /etc/fstab</b>"
 
 msgid "Find the swap partition with:"
-msgstr ""
+msgstr "Encontrar la partición swap con:"
 
 msgid "Flash Memory"
 msgstr "Flash Memory"
@@ -61,8 +61,9 @@ msgid ""
 msgstr "Fstab (/etc/fstab) necesita ser cambiado manualmente. Siga estos pasos para cambiarlo:"
 
 msgid ""
-"If you disable swap, initramfs resume should fixed to avoid mdadm messages."
-msgstr ""
+"If you disable swap, initramfs resume should be fixed to avoid mdadm "
+"messages."
+msgstr "Si deshabilita swap, initramfs debe ser recostruida para evitar mensajes de mdadm."
 
 msgid "Login as root locally or via ssh"
 msgstr "Log como root localmente o via ssh"
@@ -73,13 +74,13 @@ msgstr "Notas (opcional)"
 msgid ""
 "On systems using GPT, swap will still be auto-detected.  The swap partition "
 "should be turned off and wiped."
-msgstr ""
+msgstr "En sistemas GPT, la partición swap será detectada automáticamente. La partición  puede ser deshabilitada y limpiada."
 
 msgid "Reboot"
 msgstr "Reinicia"
 
 msgid "Remove the resume file:"
-msgstr ""
+msgstr "Eliminar el archivo de resumen:"
 
 msgid "Root"
 msgstr "Root"
@@ -88,10 +89,10 @@ msgid "Settings"
 msgstr "Opciones"
 
 msgid "Update initramfs:"
-msgstr ""
+msgstr "Actualizar Initramfs:"
 
 msgid "Wipe the swap partition with wipefs:"
-msgstr ""
+msgstr "Borrar/Limpiar la partición swaps con wipefs:"
 
 msgid "Write Kbytes"
 msgstr "Escritura en Kbytes"

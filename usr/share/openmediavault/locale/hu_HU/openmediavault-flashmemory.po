@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
-# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2019
-# Gyuris Gellért <bubu@ujevangelizacio.hu>, 2017
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2019
+# Gyuris Gellért <jobel@ujevangelizacio.hu>, 2017
+# Grawens <szabolcs.szanyi@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 07:14-0500\n"
-"PO-Revision-Date: 2020-03-13 12:14+0000\n"
+"POT-Creation-Date: 2020-07-23 07:16-0500\n"
+"PO-Revision-Date: 2020-07-23 12:16+0000\n"
 "Last-Translator: Aaron Murray <aaronmurray27@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +26,7 @@ msgstr "UTÁNA"
 msgid ""
 "Add noatime and nodiratime to root options.  See before and after example "
 "lines:"
-msgstr "Adjuk hozzá a „noatime” vagy a „nodiratime” paramétereket a root opciókhoz. Figyeljük meg az előtte és az utána példasorokat:"
+msgstr "Adjuk hozzá a „noatime” és a „nodiratime” paramétereket a root opciókhoz. Figyeljük meg az előtte és az utána példasorokat:"
 
 msgid "BEFORE:"
 msgstr "ELŐTTE"
@@ -33,7 +34,7 @@ msgstr "ELŐTTE"
 msgid ""
 "Comment out the swap partition.  See before and after example lines (only "
 "need to add a # to beginning of the line):"
-msgstr "Kommenteljük ki a cserepartíciót. Figyeljük meg az előtte és az utána példasorokat, hogy csak egy # karaktert kell hozzáadni a sor elejére:"
+msgstr "Kommenteljük ki a cserepartíciót. Figyeljük meg az előtte és az utána példasorokat, (hogy csak egy # karaktert kell hozzáadni a sor elejére):"
 
 msgid "Ctrl-o to save"
 msgstr "Mentés: Ctrl-o"
@@ -62,7 +63,8 @@ msgid ""
 msgstr "Az fstabot (/etc/fstab) kézzel kell módosítani. Kövessük az alábbi lépéseket: "
 
 msgid ""
-"If you disable swap, initramfs resume should fixed to avoid mdadm messages."
+"If you disable swap, initramfs resume should be fixed to avoid mdadm "
+"messages."
 msgstr ""
 
 msgid "Login as root locally or via ssh"
