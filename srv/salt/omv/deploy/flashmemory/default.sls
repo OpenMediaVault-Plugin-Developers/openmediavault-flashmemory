@@ -48,10 +48,6 @@ configure_flashmemory:
     - group: root
     - mode: 644
 
-remove_cron_apt_file:
-  file.absent:
-    - name: "/etc/cron-apt/action.d/3-download"
-
 folder2ram_enable_systemd:
   cmd.run:
     - name: "/sbin/folder2ram -enablesystemd"
