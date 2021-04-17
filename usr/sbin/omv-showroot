@@ -1,3 +1,0 @@
-#!/bin/sh
-
-awk '$5 == "/" { print $10 }' /proc/self/mountinfo

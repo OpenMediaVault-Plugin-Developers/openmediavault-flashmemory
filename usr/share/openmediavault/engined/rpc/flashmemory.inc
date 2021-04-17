@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2015-2019 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2021 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,20 +31,5 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
     {
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
-        // Get root drive and data written
-        $cmd = new \OMV\System\Process("omv-showroot");
-        $cmd->setQuiet(true);
-        $cmd->execute($output);
-        $root = explode("/", $output[0]);
-        // Get session_write_kbytes for root drive
-        $written = gettext("n/a");
-        $writefile = sprintf("/sys/fs/ext4/%s/session_write_kbytes", $root[2]);
-        if (file_exists($writefile)) {
-            $written = file_get_contents($writefile);
-        }
-        return [
-            "root" => $output[0],
-            "written" => $written
-        ];
     }
 }
