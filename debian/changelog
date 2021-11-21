@@ -1,3 +1,9 @@
+openmediavault-flashmemory (5.0.9) stable; urgency=low
+
+  * Add systemctl daemon-reload
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Sun, 21 Nov 2021 13:11:18 -0600
+
 openmediavault-flashmemory (5.0.8) stable; urgency=low
 
   * Stop removing cron-apt file

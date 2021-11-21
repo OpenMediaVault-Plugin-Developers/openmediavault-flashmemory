@@ -55,3 +55,7 @@ folder2ram_enable_systemd:
 folder2ram_mountall:
   cmd.run:
     - name: "/sbin/folder2ram -mountall"
+
+systemd-reload:
+  cmd.run:
+    - name: systemctl daemon-reload
