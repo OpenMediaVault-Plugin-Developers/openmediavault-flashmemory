@@ -10,7 +10,7 @@ case "$1" in
         # Activate package triggers
         dpkg-trigger update-workbench
 
-        omv-salt deploy run flashmemory
+        omv-salt deploy run --no-color flashmemory
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
