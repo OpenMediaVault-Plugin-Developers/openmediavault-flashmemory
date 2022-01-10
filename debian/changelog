@@ -1,3 +1,9 @@
+openmediavault-flashmemory (6.0.4) stable; urgency=low
+
+  * Add web interface with status
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 10 Jan 2022 08:17:23 -0600
+
 openmediavault-flashmemory (6.0.3) stable; urgency=low
 
   * Improve plugin description
