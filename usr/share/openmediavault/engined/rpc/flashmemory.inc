@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2015-2021 OpenMediaVault Plugin Developers
+ * Copyright (C) 2015-2022 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,12 +24,17 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
 
     public function initialize()
     {
-        $this->registerMethod("getSettings");
+        $this->registerMethod("get");
     }
 
-    public function getSettings($params, $context)
+    public function get($params, $context)
     {
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
+        $cmd = new \OMV\System\Process("grep -c folder2ram /proc/mounts");
+        $cmd->execute($output, $exitStatus);
+        return [
+            "status" => intval($output[0]) > 1 ? gettext('running') : gettext('not running')
+        ];
     }
 }

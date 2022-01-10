@@ -5,8 +5,14 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+remove_action() {
+    dpkg-trigger update-workbench
+}
+
 case "$1" in
     purge)
+        remove_action
+
         # remove config file
         if [ -f /etc/folder2ram/folder2ram.conf ]; then
           rm /etc/folder2ram/folder2ram.conf
@@ -21,7 +27,11 @@ case "$1" in
         fi
     ;;
 
-    remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+    remove)
+        remove_action
+    ;;
+
+    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;
 
     *)

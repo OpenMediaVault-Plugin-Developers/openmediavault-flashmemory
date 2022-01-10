@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/flashmemory"
+  title: _("Flashmemory")
+  editing: true
+  component: omv-services-flashmemory-form-page

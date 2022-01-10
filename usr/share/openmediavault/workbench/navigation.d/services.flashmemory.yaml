@@ -1,0 +1,7 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.flashmemory"
+  text: _("Flashmemory")
+  icon: "mdi:flash-outline"
+  url: "/services/flashmemory"

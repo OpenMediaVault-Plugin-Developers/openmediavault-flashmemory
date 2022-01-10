@@ -1,0 +1,16 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-flashmemory-form-page
+  type: formPage
+  config:
+    request:
+      service: Flashmemory
+      get:
+        method: get
+    fields:
+      - type: textInput
+        name: status
+        label: _("Status")
+        value: ""
+        readonly: true
