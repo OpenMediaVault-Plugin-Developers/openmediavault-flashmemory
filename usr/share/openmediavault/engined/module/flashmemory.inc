@@ -28,6 +28,7 @@ class OMVModuleFlashMemory extends \OMV\Engine\Module\ServiceAbstract
     public function getStatus()
     {
         $cmd = new \OMV\System\Process("grep -c folder2ram /proc/mounts");
+        $cmd->setQuiet(true);
         $cmd->execute($output, $exitStatus);
         $systemCtl = new \OMV\System\SystemCtl("folder2ram_startup");
         return array(

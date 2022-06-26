@@ -33,6 +33,7 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         $cmd = new \OMV\System\Process("grep -c folder2ram /proc/mounts");
+        $cmd->setQuiet(true);
         $cmd->execute($output, $exitStatus);
         return [
             "status" => intval($output[0]) > 1 ? gettext('running') : gettext('not running')
@@ -46,6 +47,7 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
         return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
             use ($params) {
                 $cmd = new \OMV\System\Process("folder2ram -syncall");
+                $cmd->setQuiet(true);
                 $cmdLine = $cmd->getCommandLine();
                 if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename)) {
                     throw new \OMV\ExecException($cmdLine, $output);
