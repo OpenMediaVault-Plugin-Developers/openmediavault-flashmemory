@@ -27,12 +27,14 @@ class OMVModuleFlashMemory extends \OMV\Engine\Module\ServiceAbstract
 
     public function getStatus()
     {
+        $cmd = new \OMV\System\Process("grep -c folder2ram /proc/mounts");
+        $cmd->execute($output, $exitStatus);
         $systemCtl = new \OMV\System\SystemCtl("folder2ram_startup");
         return array(
             "name" => $this->getName(),
             "title" => gettext("FlashMemory"),
             "enabled" => true,
-            "running" => $systemCtl->isActive()
+            "running" => intval($output[0]) > 0 ? true : false
         );
     }
 }

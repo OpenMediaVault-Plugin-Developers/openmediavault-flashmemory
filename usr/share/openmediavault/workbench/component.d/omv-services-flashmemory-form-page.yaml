@@ -14,3 +14,17 @@ data:
         label: _("Status")
         value: ""
         readonly: true
+    buttons:
+      - text: _("Sync all")
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Sync the content of folder2ram's tmpfs folders to disk ...")
+              startOnInit: true
+              request:
+                service: Flashmemory
+                method: syncall
+              buttons:
+                stop:
+                  hidden: true
