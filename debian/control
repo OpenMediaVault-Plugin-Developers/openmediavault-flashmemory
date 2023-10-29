@@ -3,14 +3,14 @@ Section: net
 XB-Plugin-Section: filesystems
 Priority: optional
 Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-Build-Depends: debhelper (>= 12)
+Build-Depends: debhelper (>= 13)
 Standards-Version: 4.3.0
 Homepage: http://omv-extras.org/
 
 Package: openmediavault-flashmemory
 Architecture: all
 Depends: folder2ram (>= 0.3.1),
-         openmediavault (>= 6.0),
+         openmediavault (>= 7),
          ${misc:Depends}
 Description: folder2ram plugin for openmediavault
  folder2ram manages temporary file systems across reboots, to decrease writes on permanent storage.
