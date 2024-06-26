@@ -15,6 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+{% set extradirs = salt['pillar.get']('default:OMV_FM_EXTRA_DIRS', '') %}
+{% set tabs = '\t\t' %}
+
 configure_rrd_dir:
   file.directory:
     - name: "/var/lib/openmediavault/rrd"
@@ -36,14 +39,19 @@ configure_flashmemory:
     - contents: |
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
-        #<type>		<mount point>		<options>
-        tmpfs		/var/log
-        tmpfs		/var/tmp
-        tmpfs		/var/lib/openmediavault/rrd
-        tmpfs		/var/spool
-        tmpfs		/var/lib/rrdcached/
-        tmpfs		/var/lib/monit
-        tmpfs		/var/cache/samba
+        #<type>{{ tabs }}<mount point>{{ tabs }}<options>
+        tmpfs{{ tabs }}/var/log
+        tmpfs{{ tabs }}/var/tmp
+        tmpfs{{ tabs }}/var/lib/openmediavault/rrd
+        tmpfs{{ tabs }}/var/spool
+        tmpfs{{ tabs }}/var/lib/rrdcached/
+        tmpfs{{ tabs }}/var/lib/monit
+        tmpfs{{ tabs }}/var/cache/samba
+        {%- for path in extradirs.split(',') %}
+        {%- if path.strip() | length > 1 %}
+        tmpfs{{ tabs }}{{ path.strip() }}
+        {%- endif %}
+        {%- endfor %}
     - user: root
     - group: root
     - mode: 644
