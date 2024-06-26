@@ -28,3 +28,7 @@ data:
               buttons:
                 stop:
                   hidden: true
+      - text: _("Wiki")
+        execute:
+          type: url
+          url: '/externalRedirect/https%3A%2F%2Fwiki.omv-extras.org%2Fdoku.php%3Fid%3Domv7%3Aomv7_plugins%3Aflashmemory'
