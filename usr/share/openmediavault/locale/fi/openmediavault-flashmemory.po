@@ -1,0 +1,36 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the openmediavault-flashmemory package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-flashmemory\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-26 17:05-0500\n"
+"PO-Revision-Date: 2015-03-11 12:03+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Finnish (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/fi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "FlashMemory"
+msgstr ""
+
+msgid "Flashmemory"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Sync all"
+msgstr ""
+
+msgid "Sync the content of folder2ram's tmpfs folders to disk ..."
+msgstr ""
+
+msgid "Wiki"
+msgstr ""
