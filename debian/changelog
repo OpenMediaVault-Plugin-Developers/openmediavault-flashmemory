@@ -1,3 +1,9 @@
+openmediavault-flashmemory (7.0.1) stable; urgency=low
+
+  * Add environment variable to add exra folder2ram mount points
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Wed, 26 Jun 2024 16:55:59 -0500
+
 openmediavault-flashmemory (7.0) stable; urgency=low
 
   * Update for OMV 7.x
