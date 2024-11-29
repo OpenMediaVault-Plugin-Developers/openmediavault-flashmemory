@@ -1,5 +1,12 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 
+Files: zram-config
+Copyright: 2019-2024 Contributors to the zram-config project
+License: MIT
+
+Files: overlay fsck.overlay
+License: Do What The F*ck You Want To Public License
+
 Files: *
 Copyright: 2015-2024 OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 License: GPL-3+

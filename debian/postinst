@@ -10,6 +10,19 @@ case "$1" in
         # Activate package triggers
         dpkg-trigger update-workbench
 
+        # create directories
+        mkdir -p /opt/zram
+        mkdir -p /usr/lib/zram-config
+        mkdir -p /usr/local/share/zram-config/log
+
+        # create log file
+        touch /usr/local/share/zram-config/log/zram-config.log
+
+        # create overlay and fsck.overlay symlinks
+        ln -sf /usr/sbin/overlay.$(arch) /usr/sbin/overlay
+        ln -sf /usr/sbin/fsck.overlay.$(arch) /usr/sbin/fsck.overlay
+
+        # create config file
         omv-salt deploy run --no-color flashmemory
     ;;
 

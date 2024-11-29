@@ -7,8 +7,10 @@ set -e
 
 case "$1" in
     purge|remove|failed-upgrade|abort-install|abort-upgrade|disappear)
-        folder2ram -syncall
-        folder2ram -disablesystemd
+        # stop and disable service
+        /usr/sbin/zram-config stop || :
+        deb-systemd-invoke stop zram-config.service || :
+        deb-systemd-helper disable zram-config.service
     ;;
 
     upgrade)

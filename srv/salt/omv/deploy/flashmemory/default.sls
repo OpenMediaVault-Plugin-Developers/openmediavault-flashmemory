@@ -28,42 +28,37 @@ configure_samba_dir:
     - name: "/var/cache/samba"
     - makedirs: True
 
-configure_folder2ram_dir:
-  file.directory:
-    - name: "/etc/folder2ram"
-    - makedirs: True
-
 configure_flashmemory:
   file.managed:
-    - name: "/etc/folder2ram/folder2ram.conf"
+    - name: "/etc/ztab"
     - contents: |
         {{ pillar['headers']['auto_generated'] }}
         {{ pillar['headers']['warning'] }}
-        #<type>{{ tabs }}<mount point>{{ tabs }}<options>
-        tmpfs{{ tabs }}/var/log
-        tmpfs{{ tabs }}/var/tmp
-        tmpfs{{ tabs }}/var/lib/openmediavault/rrd
-        tmpfs{{ tabs }}/var/spool
-        tmpfs{{ tabs }}/var/lib/rrdcached/
-        tmpfs{{ tabs }}/var/lib/monit
-        tmpfs{{ tabs }}/var/cache/samba
+        # swap  alg      mem_limit  disk_size  swap_priority  page-cluster  swappiness
+        swap    lzo-rle  250M		    750M       75             0             150
+        # dir  alg      mem_limit  disk_size  target_dir                   bind_dir
+        dir    lzo-rle  50M        150M       /var/tmp                     /opt/zram/vartmp.bind
+        dir    lzo-rle  50M        150M       /var/lib/openmediavault/rrd  /opt/zram/rrd.bind
+        dir    lzo-rle  50M        150M       /var/spool                   /opt/zram/spool.bind
+        dir    lzo-rle  50M        150M       /var/lib/rrdcached/          /opt/zram/rrdcached.bind
+        dir    lzo-rle  50M        150M       /var/lib/monit               /opt/zram/monit.bind
+        dir    lzo-rle  50M        150M       /var/cache/samba             /opt/zram/samba.bind
+        # log	 alg      mem_limit  disk_size  target_dir                   bind_dir                  oldlog_dir
+        log    lzo-rle  50M        150M       /var/log                     /opt/zram/log.bind        /opt/zram/oldlog
+        {%- set count = 0 %}
         {%- for path in extradirs.split(',') %}
         {%- if path.strip() | length > 1 %}
-        tmpfs{{ tabs }}{{ path.strip() }}
+        {%- set count = count + 1 %}
+        dir    lzo-rle  50M        150M       {{ path.strip() }}           /opt/zram/extra_{{ count }}.bind
         {%- endif %}
         {%- endfor %}
     - user: root
     - group: root
     - mode: 644
 
-folder2ram_enable_systemd:
-  cmd.run:
-    - name: "/sbin/folder2ram -enablesystemd"
-
-folder2ram_mountall:
-  cmd.run:
-    - name: "/sbin/folder2ram -mountall"
-
-systemd-reload:
-  cmd.run:
-    - name: systemctl daemon-reload
+start_zram_config_service:
+  service.running:
+    - name: zram-config
+    - enable: True
+    - watch:
+      - file: configure_flashmemory

@@ -13,10 +13,16 @@ case "$1" in
     purge)
         remove_action
 
-        # remove config file
-        if [ -f /etc/folder2ram/folder2ram.conf ]; then
-          rm /etc/folder2ram/folder2ram.conf
-        fi
+        # remove directories and files
+        rm -f /etc/logrotate.d/zram-config
+        rm -f /etc/ztab
+        rm -f /usr/sbin/fsck.overlay
+        rm -f /usr/sbin/overlay
+        rm -f /var/log/zram-config
+        rm -rf /opt/zram
+        rm -rf /usr/lib/zram-config
+        rm -rf /usr/local/lib/zram-config
+        rm -rf /usr/local/share/zram-config
 
         # reverting apt disk cache if the file was written at all
         if [ -f /etc/apt/apt.conf.d/02nocache ]; then
