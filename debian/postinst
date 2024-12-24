@@ -19,11 +19,19 @@ case "$1" in
         touch /usr/local/share/zram-config/log/zram-config.log
 
         # create overlay and fsck.overlay symlinks
-        ln -sf /usr/sbin/overlay.$(arch) /usr/sbin/overlay
-        ln -sf /usr/sbin/fsck.overlay.$(arch) /usr/sbin/fsck.overlay
+        arch="$(arch)"
+        ln -sf "/usr/sbin/overlay.${arch}" /usr/sbin/overlay
+        ln -sf "/usr/sbin/fsck.overlay.${arch}" /usr/sbin/fsck.overlay
 
         # create config file
         omv-salt deploy run --no-color flashmemory
+
+        # Check if folder2ram is installed
+        f2rInstall=$(dpkg -l | awk '$2 == "folder2ram" { print $1 }')
+        if [ "${f2rInstall}" = "ii" ]; then
+            echo "folder2ram is installed. Removing it in a background task ..."
+            (sleep 300 && dpkg --purge folder2ram) &
+        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
