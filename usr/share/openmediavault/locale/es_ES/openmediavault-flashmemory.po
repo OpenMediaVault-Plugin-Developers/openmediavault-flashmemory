@@ -3,23 +3,20 @@
 # This file is distributed under the same license as the openmediavault-flashmemory package.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2015-2016,2020
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2015-2016,2020,2024
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-flashmemory\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 17:05-0500\n"
+"POT-Creation-Date: 2024-12-24 08:50-0600\n"
 "PO-Revision-Date: 2015-03-11 12:03+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2015-2016,2020\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>, 2015-2016,2020,2024\n"
 "Language-Team: Spanish (Spain) (http://app.transifex.com/openmediavault-plugin-developers/openmediavault-flashmemory/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
-
-msgid "FlashMemory"
-msgstr "FlashMemory"
 
 msgid "Flashmemory"
 msgstr "Flashmemory"
@@ -30,8 +27,8 @@ msgstr "Estado"
 msgid "Sync all"
 msgstr "Sincronizar todo"
 
-msgid "Sync the content of folder2ram's tmpfs folders to disk ..."
-msgstr "Sincronizar el contenido de las carpetas tmpfs de folder2ram con el Disco ..."
+msgid "Sync the content of zram folders to disk ..."
+msgstr ""
 
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
