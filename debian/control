@@ -11,7 +11,6 @@ Package: openmediavault-flashmemory
 Architecture: all
 Depends: openmediavault (>= 7.4),
          ${misc:Depends}
-Conflicts: folder2ram
 Description: zram-config plugin for openmediavault
  zram-config manages temporary file systems across reboots, to decrease
  writes on permanent storage.

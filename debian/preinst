@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+# Check if the package is being upgraded
+if [ "$1" = "upgrade" ]; then
+    if [ -f "/usr/sbin/folder2ram" ] && [ -f "/etc/folder2ram/folder2ram.conf" ]; then
+        echo "Syncing folder2ram before disabling ..."
+        folder2ram -syncall
+        echo "Unmounting folder2ram mounts before disabling ..."
+        folder2ram -umountall
+        echo "Disabling folder2ram ..."
+        folder2ram -disablesystemd
+        echo "Removing folder2ram config"
+        rm -fv /etc/folder2ram/folder2ram.conf
+    fi
+fi
+
+exit 0
