@@ -30,7 +30,7 @@ case "$1" in
         f2rInstall=$(dpkg -l | awk '$2 == "folder2ram" { print $1 }')
         if [ "${f2rInstall}" = "ii" ]; then
             echo "folder2ram is installed. Removing it in a background task ..."
-            (sleep 300 && dpkg --purge folder2ram) &
+            nohup bash -c "(sleep 300 && dpkg --purge folder2ram)" > /dev/null 2>&1 &
         fi
     ;;
 
