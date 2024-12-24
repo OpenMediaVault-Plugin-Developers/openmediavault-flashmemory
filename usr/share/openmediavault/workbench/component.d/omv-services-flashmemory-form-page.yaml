@@ -20,7 +20,7 @@ data:
           type: taskDialog
           taskDialog:
             config:
-              title: _("Sync the content of folder2ram's tmpfs folders to disk ...")
+              title: _("Sync the content of zram folders to disk ...")
               startOnInit: true
               request:
                 service: Flashmemory
