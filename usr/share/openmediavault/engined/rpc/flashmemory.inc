@@ -32,11 +32,9 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
     {
         // Validate the RPC caller context.
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
-        $cmd = new \OMV\System\Process("grep -c folder2ram /proc/mounts");
-        $cmd->setQuiet(true);
-        $cmd->execute($output, $exitStatus);
+        $systemCtl = new \OMV\System\SystemCtl("zram-config");
         return [
-            "status" => intval($output[0]) > 1 ? gettext('running') : gettext('not running')
+            "status" => $systemCtl->isActive() ? gettext('running') : gettext('not running')
         ];
     }
 
@@ -46,7 +44,7 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
         $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
         return $this->execBgProc(function($bgStatusFilename, $bgOutputFilename)
             use ($params) {
-                $cmd = new \OMV\System\Process("folder2ram -syncall");
+                $cmd = new \OMV\System\Process("/usr/sbin/zram-config sync");
                 $cmd->setQuiet(true);
                 $cmdLine = $cmd->getCommandLine();
                 if (0 !== $this->exec($cmdLine, $output, $bgOutputFilename)) {

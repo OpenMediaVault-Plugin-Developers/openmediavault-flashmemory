@@ -12,7 +12,7 @@ case "$1" in
 
         # create directories
         mkdir -p /opt/zram
-        mkdir -p /usr/lib/zram-config
+        mkdir -p /usr/local/lib/zram-config
         mkdir -p /usr/local/share/zram-config/log
 
         # create log file
