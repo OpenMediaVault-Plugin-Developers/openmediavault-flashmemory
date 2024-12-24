@@ -7,8 +7,8 @@ Type=exec
 TimeoutSec=120
 RemainAfterExit=yes
 WorkingDirectory=/usr/local/lib/zram-config
-ExecStart=/usr/local/sbin/zram-config "start"
-ExecStop=/usr/local/sbin/zram-config "stop"
+ExecStart=/usr/sbin/zram-config "start"
+ExecStop=/usr/sbin/zram-config "stop"
 
 [Install]
 WantedBy=multi-user.target
