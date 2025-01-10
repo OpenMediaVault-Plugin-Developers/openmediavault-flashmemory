@@ -28,7 +28,7 @@ msgid "Sync all"
 msgstr "同步全部"
 
 msgid "Sync the content of zram folders to disk ..."
-msgstr ""
+msgstr "將 zram 檔案夾內容同步到磁碟上 ..."
 
 msgid "Wiki"
 msgstr "維基"
