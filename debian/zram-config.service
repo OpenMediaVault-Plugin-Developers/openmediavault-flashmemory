@@ -1,6 +1,7 @@
 [Unit]
 Description=zram-config
 Documentation=https://github.com/ecdye/zram-config/blob/main/README.md
+Before=postfix.service
 
 [Service]
 Type=exec
