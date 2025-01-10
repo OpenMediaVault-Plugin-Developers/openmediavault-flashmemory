@@ -39,7 +39,6 @@ configure_flashmemory:
         # dir  alg      mem_limit  disk_size  target_dir                   bind_dir
         dir    lzo-rle  150M       300M       /var/tmp                     /opt/zram/vartmp.bind
         dir    lzo-rle  50M        150M       /var/lib/openmediavault/rrd  /opt/zram/rrd.bind
-        dir    lzo-rle  50M        150M       /var/spool                   /opt/zram/spool.bind
         dir    lzo-rle  50M        150M       /var/lib/rrdcached/          /opt/zram/rrdcached.bind
         dir    lzo-rle  50M        150M       /var/lib/monit               /opt/zram/monit.bind
         dir    lzo-rle  50M        150M       /var/cache/samba             /opt/zram/samba.bind
