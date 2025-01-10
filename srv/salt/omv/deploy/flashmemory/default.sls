@@ -37,7 +37,7 @@ configure_flashmemory:
         # swap  alg      mem_limit  disk_size  swap_priority  page-cluster  swappiness
         swap    lzo-rle  250M		    750M       75             0             150
         # dir  alg      mem_limit  disk_size  target_dir                   bind_dir
-        dir    lzo-rle  50M        150M       /var/tmp                     /opt/zram/vartmp.bind
+        dir    lzo-rle  150M       300M       /var/tmp                     /opt/zram/vartmp.bind
         dir    lzo-rle  50M        150M       /var/lib/openmediavault/rrd  /opt/zram/rrd.bind
         dir    lzo-rle  50M        150M       /var/spool                   /opt/zram/spool.bind
         dir    lzo-rle  50M        150M       /var/lib/rrdcached/          /opt/zram/rrdcached.bind
