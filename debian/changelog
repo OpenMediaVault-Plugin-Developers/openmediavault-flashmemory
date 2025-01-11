@@ -1,6 +1,7 @@
 openmediavault-flashmemory (7.1) UNRELEASED; urgency=medium
 
   * Replace folder2ram with zram-config
+  * Add datatable allowing adding and editing zram directories
 
  -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Fri, 29 Nov 2024 13:28:51 -0600
 
