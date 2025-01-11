@@ -24,8 +24,76 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
 
     public function initialize()
     {
+        $this->registerMethod("getDirList");
+        $this->registerMethod("setDir");
+        $this->registerMethod("getDir");
+        $this->registerMethod("deleteDir");
+
         $this->registerMethod("get");
         $this->registerMethod("syncall");
+    }
+
+    public function getDirList($params, $context)
+    {
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, "rpc.common.getlist");
+        // Get the configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        $objects = $db->getAssoc("conf.service.flashmemory.dir");
+        // Filter the result.
+        return $this->applyFilter($objects,$params['start'],$params['limit'],
+            $params['sortfield'],$params['sortdir']);
+    }
+
+    public function getDir($params, $context)
+    {
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, "rpc.common.objectuuid");
+        // Get the configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        return $db->getAssoc("conf.service.flashmemory.dir", $params['uuid']);
+    }
+
+    public function setDir($params, $context)
+    {
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, "rpc.flashmemory.setdir");
+        if (strpos($params['path'], '/opt/zram') === 0) {
+            throw new \OMV\Exception(gettext("Directory cannot start with /opt/zram!"));
+        }
+        // Prepare the configuration object.
+        $object = new \OMV\Config\ConfigObject("conf.service.flashmemory.dir");
+        $object->setAssoc($params);
+        // Set the configuration object
+        $db = \OMV\Config\Database::getInstance();
+        if (TRUE === $object->isNew()) {
+            // Check uniqueness:
+            $db->assertIsUnique($object, "uuid");
+            $db->assertIsUnique($object, "path");
+        }
+        $db->set($object);
+        // Return the configuration object.
+        return $object->getAssoc();
+    }
+
+    public function deleteDir($params, $context)
+    {
+        // Validate the RPC caller context.
+        $this->validateMethodContext($context, ["role" => OMV_ROLE_ADMINISTRATOR]);
+        // Validate the parameters of the RPC service method.
+        $this->validateMethodParams($params, "rpc.common.objectuuid");
+        // Delete the configuration object.
+        $db = \OMV\Config\Database::getInstance();
+        $object = $db->get("conf.service.flashmemory.dir", $params['uuid']);
+        $db->delete($object);
+        // Return the deleted configuration object.
+        return $object->getAssoc();
     }
 
     public function get($params, $context)

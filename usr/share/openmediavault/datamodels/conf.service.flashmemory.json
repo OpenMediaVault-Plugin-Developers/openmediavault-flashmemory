@@ -1,0 +1,55 @@
+{
+  "type": "config",
+  "id": "conf.service.flashmemory",
+  "title": "flashmemory",
+  "queryinfo": {
+    "xpath": "//services/flashmemory",
+    "iterable": false
+  },
+  "properties": {
+    "dirs": {
+      "type": "object",
+      "properties": {
+        "dir": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "uuid": {
+                "type": "string",
+                "format": "uuidv4"
+              },
+              "enable": {
+                "type": "boolean",
+                "default": false
+              },
+              "path": {
+                "type": "string"
+              },
+              "ztype": {
+                "type": "string",
+                "enum": [
+                  "dir",
+                  "log",
+                  "swap"
+                ]
+              },
+              "memlimit": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9999,
+                "default": 50
+              },
+              "disksize": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9999,
+                "default": 150
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

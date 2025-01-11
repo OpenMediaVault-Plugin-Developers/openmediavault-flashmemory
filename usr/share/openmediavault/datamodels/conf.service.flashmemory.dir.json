@@ -1,0 +1,38 @@
+{
+  "type": "config",
+  "id": "conf.service.flashmemory.dir",
+  "title": "flashmemory dir",
+  "queryinfo": {
+    "xpath": "//services/flashmemory/dirs/dir",
+    "iterable": true,
+    "idproperty": "uuid"
+  },
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "format": "uuidv4"
+    },
+    "enable": {
+      "type": "boolean",
+      "default": false
+    },
+    "path": {
+      "type": "string"
+    },
+    "ztype": {
+      "type": "string"
+    },
+    "memlimit": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9999,
+      "default": 50
+    },
+    "disksize": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9999,
+      "default": 150
+    }
+  }
+}

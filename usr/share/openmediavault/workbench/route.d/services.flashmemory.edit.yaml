@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/flashmemory/edit/:uuid"
+  title: _("Edit")
+  editing: true
+  notificationTitle: _("Edit directory.")
+  component: omv-services-flashmemory-form-page

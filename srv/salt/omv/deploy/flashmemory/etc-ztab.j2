@@ -1,0 +1,21 @@
+{{ pillar['headers']['auto_generated'] }}
+{{ pillar['headers']['warning'] }}
+{%- macro gen_path(path, prefix, suffix) -%}
+    /opt/zram/{{ path | replace("/", "") }}{{ suffix }}
+{%- endmacro %}
+
+# swap  alg  mem_limit  disk_size  swap_priority  page-cluster  swappiness
+{%- for dir in config.dirs.dir | selectattr("ztype", "equalto", "swap") | selectattr('enable') %}
+{{ dir.ztype }}  lzo-rle  {{ dir.memlimit }}M  {{ dir.disksize }}M  75  0  150
+{%- endfor %}
+
+# dir  alg  mem_limit  disk_size  target_dir  bind_dir
+{%- for dir in config.dirs.dir | selectattr("ztype", "equalto", "dir") | selectattr('enable') %}
+{{ dir.ztype }}  lzo-rle  {{ dir.memlimit }}M  {{ dir.disksize }}M  {{ dir.path }}  {{ gen_path(dir.path, '/opt/zram', '.bind') }}
+{%- endfor %}
+
+# log  alg  mem_limit  disk_size  target_dir  bind_dir  oldlog_dir
+{%- for dir in config.dirs.dir | selectattr("ztype", "equalto", "log") | selectattr('enable') %}
+{{ dir.ztype }}  lzo-rle  {{ dir.memlimit }}M  {{ dir.disksize }}M  {{ dir.path }}  {{ gen_path(dir.path, '/opt/zram', '.bind') }}  {{ gen_path(dir.path, '/opt/zram', '.old') }}
+{%- endfor %}
+

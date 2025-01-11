@@ -1,0 +1,7 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/flashmemory/create"
+  title: _("Create")
+  notificationTitle: _("Created directory.")
+  component: omv-services-flashmemory-form-page

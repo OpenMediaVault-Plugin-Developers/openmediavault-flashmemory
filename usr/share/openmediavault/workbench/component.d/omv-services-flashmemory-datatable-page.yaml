@@ -1,0 +1,74 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-flashmemory-datatable-page
+  type: datatablePage
+  config:
+    autoReload: false
+    hasSearchField: true
+    stateId: 5ed7be10-d02f-11ef-944b-8bb2db7833cb
+    store:
+      proxy:
+        service: Flashmemory
+        get:
+          method: getDirList
+    columns:
+      - name: _("Enabled")
+        prop: enable
+        sortable: true
+        cellTemplateName: checkIcon
+        flexGrow: 1
+      - name: _("Type")
+        prop: ztype
+        sortable: true
+        flexGrow: 1
+      - name: _("Directory")
+        prop: path
+        sortable: true
+        flexGrow: 3
+      - name: _("Memory Limit")
+        prop: memlimit
+        sortable: true
+        flexGrow: 1
+      - name: _("Disk Size")
+        prop: disksize
+        sortable: true
+        flexGrow: 1
+    actions:
+      - template: create
+        execute:
+          type: url
+          url: "/services/flashmemory/create"
+      - template: edit
+        execute:
+          type: url
+          url: "/services/flashmemory/edit/{{ _selected[0].uuid }}"
+      - template: delete
+        execute:
+          type: request
+          request:
+            service: Flashmemory
+            method: deleteDir
+            params:
+              uuid: "{{ _selected[0].uuid }}"
+      - type: iconButton
+        tooltip: _("Sync all")
+        icon: mdi:sync
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Sync the content of zram folders to disk ...")
+              startOnInit: true
+              request:
+                service: Flashmemory
+                method: syncall
+              buttons:
+                stop:
+                  hidden: true
+      - type: iconButton
+        tooltip: _("Wiki")
+        icon: mdi:link
+        execute:
+          type: url
+          url: '/externalRedirect/https%3A%2F%2Fwiki.omv-extras.org%2Fdoku.php%3Fid%3Domv7%3Aomv7_plugins%3Aflashmemory'

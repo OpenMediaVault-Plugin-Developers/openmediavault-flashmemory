@@ -7,28 +7,69 @@ data:
     request:
       service: Flashmemory
       get:
-        method: get
+        method: getDir
+        params:
+          uuid: "{{ _routeParams.uuid }}"
+      post:
+        method: setDir
     fields:
+      - type: hint
+        hintType: info
+        text: "<a href='https://github.com/ecdye/zram-config/blob/main/README.md' target='_blank'>Helpful link</a>"
+      - type: confObjUuid
+      - type: checkbox
+        name: enable
+        label: _("Enable")
+        value: true
+      - type: select
+        name: ztype
+        label: _("Type")
+        value: "dir"
+        store:
+          data:
+            - ["dir", "dir"]
+            - ["log", "log"]
+            - ["swap", "swap"]
       - type: textInput
-        name: status
-        label: _("Status")
+        name: path
+        label: _("Directoy")
         value: ""
-        readonly: true
+        hint: _("Create a zram device for this directory.")
+        modifiers:
+          - type: visible
+            constraint:
+              operator: ne
+              arg0:
+                prop: ztype
+              arg1: "swap"
+        validators:
+          required: true
+      - type: numberInput
+        name: memlimit
+        label: _("Memory limit")
+        value: 50
+        hint: _("The compressed memory limit and will set a hard memory limit for the system admin. Set to 0 to disable the mem_limit. Units in MB.")
+        validators:
+          min: 0
+          max: 9999
+          patternType: integer
+          required: true
+      - type: numberInput
+        name: disksize
+        label: _("Disk size")
+        value: 150
+        hint: _("The maximum size of the uncompressed memory. It should be set to roughly 150% of mem_limit. Units in MB.")
+        validators:
+          min: 0
+          max: 9999
+          patternType: integer
+          required: true
     buttons:
-      - text: _("Sync all")
-        execute:
-          type: taskDialog
-          taskDialog:
-            config:
-              title: _("Sync the content of zram folders to disk ...")
-              startOnInit: true
-              request:
-                service: Flashmemory
-                method: syncall
-              buttons:
-                stop:
-                  hidden: true
-      - text: _("Wiki")
+      - template: submit
         execute:
           type: url
-          url: '/externalRedirect/https%3A%2F%2Fwiki.omv-extras.org%2Fdoku.php%3Fid%3Domv7%3Aomv7_plugins%3Aflashmemory'
+          url: "/services/flashmemory"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/flashmemory"

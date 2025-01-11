@@ -23,6 +23,13 @@ case "$1" in
         ln -sf "/usr/sbin/overlay.${arch}" /usr/sbin/overlay
         ln -sf "/usr/sbin/fsck.overlay.${arch}" /usr/sbin/fsck.overlay
 
+        # Initialize and migrate configuration database.
+        echo "Updating configuration database ..."
+        omv-confdbadm create "conf.service.flashmemory"
+        if [ -n "$2" ]; then
+            omv-confdbadm migrate "conf.service.flashmemory" "${2}"
+        fi
+
         # create config file
         omv-salt deploy run --no-color flashmemory
 
