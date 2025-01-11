@@ -18,7 +18,7 @@
  */
 
 class OMVModuleFlashMemory extends \OMV\Engine\Module\ServiceAbstract
-    implements \OMV\Engine\Module\IServiceStatus
+    implements \OMV\Engine\Notify\IListener, \OMV\Engine\Module\IServiceStatus
 {
     public function getName()
     {
