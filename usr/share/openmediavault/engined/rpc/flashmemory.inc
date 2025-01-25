@@ -67,6 +67,9 @@ class OMVRpcServiceFlashmemory extends \OMV\Rpc\ServiceAbstract
         if (strpos($params['path'], '/opt/zram') === 0) {
             throw new \OMV\Exception(gettext("Directory cannot start with /opt/zram!"));
         }
+        if ($params['ztype'] == 'swap') {
+            $params['path'] = '';
+        }
         // Prepare the configuration object.
         $object = new \OMV\Config\ConfigObject("conf.service.flashmemory.dir");
         $object->setAssoc($params);

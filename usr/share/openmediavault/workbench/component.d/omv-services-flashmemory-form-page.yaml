@@ -43,7 +43,11 @@ data:
                 prop: ztype
               arg1: "swap"
         validators:
-          required: true
+          requiredIf:
+            operator: ne
+            arg0:
+              prop: ztype
+            arg1: "swap"
       - type: numberInput
         name: memlimit
         label: _("Memory limit")
