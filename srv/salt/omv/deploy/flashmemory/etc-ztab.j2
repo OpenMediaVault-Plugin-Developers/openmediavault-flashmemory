@@ -9,12 +9,12 @@
 {{ dir.ztype }}  lz4  {{ dir.memlimit }}M  {{ dir.disksize }}M  75  0  150
 {%- endfor %}
 
-# dir  alg  mem_limit  disk_size  target_dir  bind_dir
+# dir  alg  mem_limit  disk_size  target_dir
 {%- for dir in config.dirs.dir | selectattr("ztype", "equalto", "dir") | selectattr('enable') %}
-{{ dir.ztype }}  lz4  {{ dir.memlimit }}M  {{ dir.disksize }}M  {{ dir.path }}  {{ gen_path(dir.path, '.bind') }}
+{{ dir.ztype }}  lz4  {{ dir.memlimit }}M  {{ dir.disksize }}M  {{ dir.path }}
 {%- endfor %}
 
-# log  alg  mem_limit  disk_size  target_dir  bind_dir  oldlog_dir
+# log  alg  mem_limit  disk_size  target_dir  oldlog_dir
 {%- for dir in config.dirs.dir | selectattr("ztype", "equalto", "log") | selectattr('enable') %}
-{{ dir.ztype }}  lz4  {{ dir.memlimit }}M  {{ dir.disksize }}M  {{ dir.path }}  {{ gen_path(dir.path, '.bind') }}  {{ gen_path(dir.path, '.old') }}
+{{ dir.ztype }}  lz4  {{ dir.memlimit }}M  {{ dir.disksize }}M  {{ dir.path }}  {{ gen_path(dir.path, '.old') }}
 {%- endfor %}
