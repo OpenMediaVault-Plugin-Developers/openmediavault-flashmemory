@@ -45,6 +45,7 @@ case "$1" in
             echo "nginx is not running..."
             mkdir /var/log/nginx
             omv-salt deploy run --no-color nginx phpfpm
+            zram-config sync || :
         fi
 
         # Check if folder2ram is installed
