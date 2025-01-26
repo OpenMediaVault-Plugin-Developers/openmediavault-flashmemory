@@ -40,6 +40,13 @@ case "$1" in
         # create config file
         omv-salt deploy run --no-color flashmemory
 
+        # Check if nginx is running
+        if ! systemctl is-active --quiet nginx.service; then
+            echo "nginx is not running..."
+            mkdir /var/log/nginx
+            omv-salt deploy run --no-color nginx phpfpm
+        fi
+
         # Check if folder2ram is installed
         f2rInstall=$(dpkg -l | awk '$2 == "folder2ram" { print $1 }')
         if [ "${f2rInstall}" = "ii" ]; then
