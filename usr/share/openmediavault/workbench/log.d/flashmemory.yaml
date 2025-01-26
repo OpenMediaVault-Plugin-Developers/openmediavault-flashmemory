@@ -1,0 +1,28 @@
+version: "1.0"
+type: log
+data:
+  id: flashmemory
+  text: _("Flashmemory")
+  columns:
+    - name: _("Component")
+      sortable: true
+      prop: component
+      flexGrow: 2
+    - name: _("Level")
+      sortable: true
+      prop: level
+      flexGrow: 1
+    - name: _("Type")
+      sortable: true
+      prop: etype
+      flexGrow: 1
+    - name: _("Event")
+      sortable: true
+      prop: event
+      flexGrow: 3
+      cellTemplateName: text
+  request:
+    service: LogFile
+    method: getList
+    params:
+      id: flashmemory
