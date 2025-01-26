@@ -30,6 +30,12 @@ case "$1" in
             omv-confdbadm migrate "conf.service.flashmemory" "${2}"
         fi
 
+        # if lzo-rle in ztab, stop zram-config
+        if [ -f "/etc/ztab" ] && grep -q lzo-rle /etc/ztab; then
+            echo "Stopping zram-config because algorithm changed..."
+            zram-config stop || :
+        fi
+
         # create config file
         omv-salt deploy run --no-color flashmemory
 
