@@ -33,6 +33,7 @@ case "$1" in
         # if lzo-rle in ztab, stop zram-config
         if [ -f "/etc/ztab" ] && grep -q lzo-rle /etc/ztab; then
             echo "Stopping zram-config because algorithm changed..."
+            zram-config sync || :
             zram-config stop || :
         fi
 
